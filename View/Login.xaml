@@ -1,0 +1,71 @@
+﻿<Window x:Class="app_wpf.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:app_wpf"
+        mc:Ignorable="d"
+        Title="Login" Height="675" Width="1200">
+    <Border Padding="10" Background="{StaticResource FondoDeVentanaBrush}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="102*"/>
+                    <RowDefinition Height="557*"/>
+                </Grid.RowDefinitions>
+                <WrapPanel>
+                    <Image Source="image/LogoHotel.jfif" Height="90" Width="90"/>
+                    <TextBlock FontSize="40" FontWeight="Bold" VerticalAlignment="Center" 
+                           Margin="15,0,0,0" Foreground="{StaticResource TextoClaroBrush}">HOTEL PERE MARÍA</TextBlock>
+                </WrapPanel>
+
+
+                <Grid Grid.Row="1" Margin="120,100,120,150">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="65*"/>
+                        <RowDefinition Height="211*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock   FontSize="30" FontWeight="Bold" VerticalAlignment="Center" 
+                           Margin="15,0,0,0" Foreground="{StaticResource TextoClaroBrush}">Login</TextBlock>
+                    <Border Grid.Row="1" CornerRadius="50,0,20,0" Padding="20" BorderThickness="0,4,0,4" 
+                 BorderBrush="{StaticResource BordesRecuadrosBrush}" HorizontalAlignment="Center" 
+                 VerticalAlignment="Top"  Background="{StaticResource FondoRecuadrosBrush}">
+                        <StackPanel Margin="0,7,0,0">
+                            <StackPanel Margin="50,0,50,0">
+                                <TextBlock Foreground="{StaticResource TextoClaroBrush}">User</TextBlock>
+                                <Border Margin="0,0,20,0" Background="{StaticResource DetallesBrush}" CornerRadius="10,10,10,10" BorderBrush="{StaticResource TextoClaroBrush}" BorderThickness="0,0,5,0">
+                                    <TextBox BorderBrush="{x:Null}" Background="{x:Null}" Foreground="{StaticResource TextoClaroBrush}" FontSize="16"></TextBox>
+                                </Border>
+                                <TextBlock Foreground="{StaticResource TextoClaroBrush}">Password</TextBlock>
+                                <Border Margin="0,0,20,0"  Background="{StaticResource DetallesBrush}" CornerRadius="10,10,10,10" BorderBrush="{StaticResource TextoClaroBrush}" BorderThickness="0,0,5,0">
+                                    <TextBox BorderBrush="{x:Null}" Background="{x:Null}" Foreground="{StaticResource TextoClaroBrush}" FontSize="16"></TextBox>
+                                </Border>
+                            </StackPanel>
+                            <Border  Background="{StaticResource TextoClaroBrush}" CornerRadius="10,0,10,0" Margin="100,10">
+                                <Button Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{StaticResource FondoRecuadrosBrush}">Login</Button>
+                            </Border>
+
+                            <WrapPanel Margin="50,10">
+                                <TextBlock  FontSize="12" Foreground="{StaticResource TextoClaroBrush}">Olvidaste la contraseña?</TextBlock>
+                                <Border  Background="{StaticResource TextoClaroBrush}" CornerRadius="10,0,10,0" >
+                                    <Button Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{StaticResource FondoRecuadrosBrush}">Recuperar</Button>
+                                </Border>
+                            </WrapPanel>
+                        </StackPanel>
+                    </Border>
+
+
+                </Grid>
+            </Grid>
+
+
+            <Image Source="image/habitacionMesita.png"  Grid.Column="1" Margin="0,-263,-158,-211"/>
+        </Grid>
+    </Border>
+</Window>
