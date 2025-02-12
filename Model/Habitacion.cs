@@ -115,19 +115,13 @@ namespace app_wpf.Model
         public string NombreTipoHabitacion { get; set; }
         
         [JsonProperty("precioBase")]
-        public string PrecioBase{ get; set; }
+        public double PrecioBase{ get; set; }
         
         [JsonProperty ("capacidadPersonas")]
         public Capacidad Capacidad { get; set; }
         
         [JsonProperty ("capacidadCamas")]
         public int CapacidadCamas { get; set; }
-
-        public TipoHabitacion(string nombreHabitacion, string precioBase)
-        {
-            NombreTipoHabitacion = nombreHabitacion;
-            PrecioBase = precioBase;
-        }
     }
     public class Capacidad
     {

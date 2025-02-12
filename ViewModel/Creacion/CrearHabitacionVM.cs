@@ -8,14 +8,15 @@ using System.Text;
 using System.Text.Json.Nodes;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using app_wpf.Model;
 using CommunityToolkit.Mvvm.ComponentModel;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
 namespace app_wpf
-{ class CrearHabitacionVM: INotifyDataErrorInfo, IDataErrorInfo
+{ 
+    class CrearHabitacionVM: INotifyPropertyChanged,INotifyDataErrorInfo, IDataErrorInfo
     {
-        
         private int _numero;
         private int _capacidadAdultos;
         private int _capacidadNinos;
@@ -26,9 +27,10 @@ namespace app_wpf
         private string _tipoHabitacion;
         private double _precio;
         private int _piso;
-        private int _dimesiones;
-
-        public int Dimensiones
+        private double _dimesiones;
+        public List<TipoHabitacion> ListaTipoHabitaciones;
+        
+        public double Dimensiones
         {
             get
             {
@@ -63,6 +65,7 @@ namespace app_wpf
             set
             {
                 _numero = value;
+                Console.WriteLine($"Nuevo valor de Numero: {_numero}");
                 OnPropertyChanged(nameof(Numero));
             }
         }
@@ -148,7 +151,8 @@ namespace app_wpf
             {
                 _tipoHabitacion = value;
                 OnPropertyChanged(nameof(TipoHabitacion));
-                Precio = CrearHabitacion.tipoHabitacionesDictionary[value];
+                Precio = ListaTipoHabitaciones[
+                    ListaTipoHabitaciones.FindIndex(tipo => tipo.NombreTipoHabitacion == _tipoHabitacion)].PrecioBase;
             }
         }
         public double Precio
@@ -182,22 +186,20 @@ namespace app_wpf
                         }
                         break;
                     case "Precio":
-                        if (CrearHabitacion.tipoHabitacionesDictionary[TipoHabitacion] > Precio)
+                        if (ListaTipoHabitaciones[
+                                ListaTipoHabitaciones.FindIndex(tipo => tipo.NombreTipoHabitacion == _tipoHabitacion)].PrecioBase > Precio)
                         {
-                            return $"El precio base de esta habitación es de {CrearHabitacion.tipoHabitacionesDictionary[TipoHabitacion]}";
+                            return $"El precio base de esta habitación es de {ListaTipoHabitaciones[
+                                ListaTipoHabitaciones.FindIndex(tipo => tipo.NombreTipoHabitacion == _tipoHabitacion)].PrecioBase}";
                         }
                         break;
                     case "CapacidadAdultos":
-                        if (CapacidadAdultos > 10)
-                            return "La capacidad máxima de adultos es de 10";
-                        else if (CapacidadAdultos < 0)
-                            return "La capacidad de adultos no puede ser menor que 0";
+                        if (CapacidadAdultos <= 0)
+                            return "La capacidad de adultos no puede ser menor o igual que 0";
                         break;
 
                     case "CapacidadNinos":
-                        if (CapacidadNinos > 10)
-                            return "La capacidad máxima de niños es de 10";
-                        else if (CapacidadNinos < 0)
+                        if (CapacidadNinos < 0)
                             return "La capacidad de niños no puede ser menor que 0";
                         break;
 
@@ -206,35 +208,24 @@ namespace app_wpf
                         break;
 
                     case "CamasDobles":
-                        if (CamasDobles > 5)
-                            return "El número máximo de camas dobles es de 5";
-                        else if (CamasDobles < 0)
+                        if (CamasDobles < 0)
                             return "El número de camas dobles no puede ser menor que 0";
                         break;
 
                     case "CamasIndividuales":
-                        if (CamasIndividuales > 10)
-                            return "El número máximo de camas individuales es de 10";
-                        else if (CamasIndividuales < 0)
+                        if (CamasIndividuales < 0)
                             return "El número de camas individuales no puede ser menor que 0";
                         break;
 
                     case "Piso":
-                        if (Piso > 20)
-                            return "El piso máximo permitido es 20";
-                        else if (Piso < 0)
+                        if (Piso < 0)
                             return "El número de piso no puede ser negativo";
                         break;
 
                     case "Dimensiones":
-                        if (Dimensiones > 100)
-                            return "Las dimensiones máximas permitidas son de 100 m²";
-                        else if (Dimensiones < 10)
-                            return "Las dimensiones mínimas permitidas son de 10 m²";
+                        if (Dimensiones < 0)
+                            return "Las dimensiones no pueden ser menores que 0m²";
                         break;
-
-                    default:
-                        return "Propiedad no reconocida";
                 }
 
                 return null;

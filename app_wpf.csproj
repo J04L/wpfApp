@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="View\Edicion\" />
+    <Folder Include="ViewModel\Listas\" />
   </ItemGroup>
 
 </Project>
