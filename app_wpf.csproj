@@ -17,12 +17,32 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="image\habitacionMesita.png" />
+    <Content Remove="image\LogoHotel.jfif" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="camaDobleIcon.png" />
     <None Remove="camaIndividualIcon.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="ViewModel\Listas\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="image\habitacionMesita.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="image\LogoHotel.jfif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="image\PRY_FormularioPropuestaProyecto.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,20 @@
+﻿app_wpf
+1.0.0.0
+
+winexe
+C#
+.cs
+C:\Users\ilove\Desktop\clase\curso_2\intermod psp\API\wpfApp\obj\Debug\net8.0-windows8.0\
+app_wpf
+none
+false
+TRACE;DEBUG;NET;NET8_0;NETCOREAPP
+C:\Users\ilove\Desktop\clase\curso_2\intermod psp\API\wpfApp\App.xaml
+7763644505
+4892249481
+14-2083382003
+200-1576380944
+View\Creacion\CrearHabitacion.xaml;View\Creacion\NuevoUser.xaml;View\Diccionario\Colors.xaml;View\Diccionario\Estilos.xaml;View\Listas\ListaHabitaciones.xaml;View\Listas\ListaUsuarios.xaml;View\Login.xaml;
+
+True
+

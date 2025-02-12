@@ -80,7 +80,7 @@
 
                     <!-- Buscar -->
                     <Border  Background="{StaticResource TextoClaroBrush}" CornerRadius="10,0,10,0" Margin="50,10">
-                        <Button x:Name="BtnBuscar" Content="Buscar"  Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{StaticResource FondoRecuadrosBrush}" Click="BtnBuscar_Click"/>
+                        <Button x:Name="BtnBuscar" Content="Buscar"  Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{StaticResource FondoRecuadrosBrush}"/>
                     </Border>
                 </StackPanel>
             </Border>

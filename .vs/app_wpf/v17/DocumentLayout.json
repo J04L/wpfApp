@@ -1,0 +1,148 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\ilove\\Desktop\\clase\\curso_2\\intermod psp\\API\\wpfApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{801EC3BA-EDA4-4743-852E-1D027B686924}|app_wpf.csproj|c:\\users\\ilove\\desktop\\clase\\curso_2\\intermod psp\\api\\wpfapp\\view\\listas\\listahabitaciones.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{801EC3BA-EDA4-4743-852E-1D027B686924}|app_wpf.csproj|solutionrelative:view\\listas\\listahabitaciones.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{801EC3BA-EDA4-4743-852E-1D027B686924}|app_wpf.csproj|c:\\users\\ilove\\desktop\\clase\\curso_2\\intermod psp\\api\\wpfapp\\view\\listas\\listausuarios.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{801EC3BA-EDA4-4743-852E-1D027B686924}|app_wpf.csproj|solutionrelative:view\\listas\\listausuarios.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{801EC3BA-EDA4-4743-852E-1D027B686924}|app_wpf.csproj|c:\\users\\ilove\\desktop\\clase\\curso_2\\intermod psp\\api\\wpfapp\\view\\listas\\listausuarios.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{801EC3BA-EDA4-4743-852E-1D027B686924}|app_wpf.csproj|solutionrelative:view\\listas\\listausuarios.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{801EC3BA-EDA4-4743-852E-1D027B686924}|app_wpf.csproj|c:\\users\\ilove\\desktop\\clase\\curso_2\\intermod psp\\api\\wpfapp\\view\\login.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{801EC3BA-EDA4-4743-852E-1D027B686924}|app_wpf.csproj|solutionrelative:view\\login.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{801EC3BA-EDA4-4743-852E-1D027B686924}|app_wpf.csproj|c:\\users\\ilove\\desktop\\clase\\curso_2\\intermod psp\\api\\wpfapp\\view\\login.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{801EC3BA-EDA4-4743-852E-1D027B686924}|app_wpf.csproj|solutionrelative:view\\login.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{801EC3BA-EDA4-4743-852E-1D027B686924}|app_wpf.csproj|c:\\users\\ilove\\desktop\\clase\\curso_2\\intermod psp\\api\\wpfapp\\view\\creacion\\crearhabitacion.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{801EC3BA-EDA4-4743-852E-1D027B686924}|app_wpf.csproj|solutionrelative:view\\creacion\\crearhabitacion.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{801EC3BA-EDA4-4743-852E-1D027B686924}|app_wpf.csproj|c:\\users\\ilove\\desktop\\clase\\curso_2\\intermod psp\\api\\wpfapp\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{801EC3BA-EDA4-4743-852E-1D027B686924}|app_wpf.csproj|solutionrelative:app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ListaHabitaciones.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\ilove\\Desktop\\clase\\curso_2\\intermod psp\\API\\wpfApp\\View\\Listas\\ListaHabitaciones.xaml.cs",
+              "RelativeDocumentMoniker": "View\\Listas\\ListaHabitaciones.xaml.cs",
+              "ToolTip": "C:\\Users\\ilove\\Desktop\\clase\\curso_2\\intermod psp\\API\\wpfApp\\View\\Listas\\ListaHabitaciones.xaml.cs",
+              "RelativeToolTip": "View\\Listas\\ListaHabitaciones.xaml.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAIAzwCwAAABTAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-12T15:26:52.044Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ListaUsuarios.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\ilove\\Desktop\\clase\\curso_2\\intermod psp\\API\\wpfApp\\View\\Listas\\ListaUsuarios.xaml.cs",
+              "RelativeDocumentMoniker": "View\\Listas\\ListaUsuarios.xaml.cs",
+              "ToolTip": "C:\\Users\\ilove\\Desktop\\clase\\curso_2\\intermod psp\\API\\wpfApp\\View\\Listas\\ListaUsuarios.xaml.cs",
+              "RelativeToolTip": "View\\Listas\\ListaUsuarios.xaml.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-12T15:26:20.665Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CrearHabitacion.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\ilove\\Desktop\\clase\\curso_2\\intermod psp\\API\\wpfApp\\View\\Creacion\\CrearHabitacion.xaml.cs",
+              "RelativeDocumentMoniker": "View\\Creacion\\CrearHabitacion.xaml.cs",
+              "ToolTip": "C:\\Users\\ilove\\Desktop\\clase\\curso_2\\intermod psp\\API\\wpfApp\\View\\Creacion\\CrearHabitacion.xaml.cs",
+              "RelativeToolTip": "View\\Creacion\\CrearHabitacion.xaml.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA8AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-12T15:25:33.285Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "App.xaml",
+              "DocumentMoniker": "C:\\Users\\ilove\\Desktop\\clase\\curso_2\\intermod psp\\API\\wpfApp\\App.xaml",
+              "RelativeDocumentMoniker": "App.xaml",
+              "ToolTip": "C:\\Users\\ilove\\Desktop\\clase\\curso_2\\intermod psp\\API\\wpfApp\\App.xaml",
+              "RelativeToolTip": "App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-02-12T15:24:48.44Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Login.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\ilove\\Desktop\\clase\\curso_2\\intermod psp\\API\\wpfApp\\View\\Login.xaml.cs",
+              "RelativeDocumentMoniker": "View\\Login.xaml.cs",
+              "ToolTip": "C:\\Users\\ilove\\Desktop\\clase\\curso_2\\intermod psp\\API\\wpfApp\\View\\Login.xaml.cs",
+              "RelativeToolTip": "View\\Login.xaml.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAADwvxgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-12T15:24:02.506Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Login.xaml",
+              "DocumentMoniker": "C:\\Users\\ilove\\Desktop\\clase\\curso_2\\intermod psp\\API\\wpfApp\\View\\Login.xaml",
+              "RelativeDocumentMoniker": "View\\Login.xaml",
+              "ToolTip": "C:\\Users\\ilove\\Desktop\\clase\\curso_2\\intermod psp\\API\\wpfApp\\View\\Login.xaml",
+              "RelativeToolTip": "View\\Login.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-02-12T15:22:07.269Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ListaUsuarios.xaml",
+              "DocumentMoniker": "C:\\Users\\ilove\\Desktop\\clase\\curso_2\\intermod psp\\API\\wpfApp\\View\\Listas\\ListaUsuarios.xaml",
+              "RelativeDocumentMoniker": "View\\Listas\\ListaUsuarios.xaml",
+              "ToolTip": "C:\\Users\\ilove\\Desktop\\clase\\curso_2\\intermod psp\\API\\wpfApp\\View\\Listas\\ListaUsuarios.xaml",
+              "RelativeToolTip": "View\\Listas\\ListaUsuarios.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-02-12T15:21:47.653Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

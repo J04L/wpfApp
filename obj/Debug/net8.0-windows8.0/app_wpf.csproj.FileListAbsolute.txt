@@ -1,0 +1,13 @@
+C:\Users\ilove\Desktop\clase\curso_2\intermod psp\API\wpfApp\obj\Debug\net8.0-windows8.0\app_wpf.csproj.AssemblyReference.cache
+C:\Users\ilove\Desktop\clase\curso_2\intermod psp\API\wpfApp\obj\Debug\net8.0-windows8.0\View\Diccionario\Colors.baml
+C:\Users\ilove\Desktop\clase\curso_2\intermod psp\API\wpfApp\obj\Debug\net8.0-windows8.0\View\Diccionario\Estilos.baml
+C:\Users\ilove\Desktop\clase\curso_2\intermod psp\API\wpfApp\obj\Debug\net8.0-windows8.0\View\Creacion\CrearHabitacion.g.cs
+C:\Users\ilove\Desktop\clase\curso_2\intermod psp\API\wpfApp\obj\Debug\net8.0-windows8.0\View\Creacion\NuevoUser.g.cs
+C:\Users\ilove\Desktop\clase\curso_2\intermod psp\API\wpfApp\obj\Debug\net8.0-windows8.0\View\Listas\ListaHabitaciones.g.cs
+C:\Users\ilove\Desktop\clase\curso_2\intermod psp\API\wpfApp\obj\Debug\net8.0-windows8.0\View\Listas\ListaUsuarios.g.cs
+C:\Users\ilove\Desktop\clase\curso_2\intermod psp\API\wpfApp\obj\Debug\net8.0-windows8.0\View\Login.g.cs
+C:\Users\ilove\Desktop\clase\curso_2\intermod psp\API\wpfApp\obj\Debug\net8.0-windows8.0\App.g.cs
+C:\Users\ilove\Desktop\clase\curso_2\intermod psp\API\wpfApp\obj\Debug\net8.0-windows8.0\app_wpf_Content.g.cs
+C:\Users\ilove\Desktop\clase\curso_2\intermod psp\API\wpfApp\obj\Debug\net8.0-windows8.0\GeneratedInternalTypeHelper.g.cs
+C:\Users\ilove\Desktop\clase\curso_2\intermod psp\API\wpfApp\obj\Debug\net8.0-windows8.0\app_wpf_MarkupCompile.cache
+C:\Users\ilove\Desktop\clase\curso_2\intermod psp\API\wpfApp\obj\Debug\net8.0-windows8.0\app_wpf_MarkupCompile.lref
