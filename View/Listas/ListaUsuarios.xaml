@@ -14,8 +14,8 @@
                 <ColumnDefinition Width="169*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="28*"/>
-                <RowDefinition Height="185*"/>
+                <RowDefinition Height="22*"/>
+                <RowDefinition Height="191*"/>
             </Grid.RowDefinitions>
 
             <WrapPanel >
@@ -39,20 +39,27 @@
                 <StackPanel>
                     <!--Titulo-->
                     <TextBlock FontSize="30" Foreground="{StaticResource TextoClaroBrush}" FontWeight="Bold" TextAlignment="Center">BUSCADOR</TextBlock>
+                    <!--Nombre-->
+                    <TextBlock Foreground="{StaticResource TextoClaroBrush}">Nombre</TextBlock>
+                    <Border Margin="0,0,0,5" Background="{StaticResource DetallesBrush}" CornerRadius="10,10,10,10" BorderBrush="{StaticResource TextoClaroBrush}" BorderThickness="0,0,5,0">
+                        <TextBox x:Name="TbxNombre" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="{StaticResource TextoClaroBrush}" FontSize="14" Padding="2"></TextBox>
+                    </Border>
+                    <!--Email-->
+                    <TextBlock Foreground="{StaticResource TextoClaroBrush}">Apellido</TextBlock>
+                    <Border Margin="0,0,0,5" Background="{StaticResource DetallesBrush}" CornerRadius="10,10,10,10" BorderBrush="{StaticResource TextoClaroBrush}" BorderThickness="0,0,5,0">
+                        <TextBox x:Name="TbxApellido" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="{StaticResource TextoClaroBrush}" FontSize="14" Padding="2"></TextBox>
+                    </Border>
+                    <!--Email-->
+                    <TextBlock Foreground="{StaticResource TextoClaroBrush}">Mail</TextBlock>
+                    <Border Margin="0,0,0,5" Background="{StaticResource DetallesBrush}" CornerRadius="10,10,10,10" BorderBrush="{StaticResource TextoClaroBrush}" BorderThickness="0,0,5,0">
+                        <TextBox x:Name="TbxEmail" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="{StaticResource TextoClaroBrush}" FontSize="14" Padding="2"></TextBox>
+                    </Border>
                     <!-- Rol -->
                     <TextBlock Text="Rol"  Margin="0,10,0,5" Foreground="{StaticResource TextoClaroBrush}"/>
                     <ComboBox x:Name="CbxRol" Style="{StaticResource CustomComboBoxStyle}">
                         <ComboBoxItem Content="Administrador" />
                         <ComboBoxItem Content="Cliente" />
                     </ComboBox>
-
-                    <!-- Usuarios -->
-                    <TextBlock Text="Usuarios"  Margin="0,10,0,5" Foreground="{StaticResource TextoClaroBrush}"/>
-                    <WrapPanel>
-                        <CheckBox x:Name="ChbxNuevo"  Content="Nuevo" Margin="0,0,10,0" Foreground="{StaticResource TextoClaroBrush}"/>
-                        <CheckBox x:Name="ChbxRepetidor" Content="Repetidor" Foreground="{StaticResource TextoClaroBrush}"/>
-                    </WrapPanel>
-
                     <!-- Fecha de nacimiento -->
                     <TextBlock Text="Fecha de nacimiento" Margin="0,10,0,5" Foreground="{StaticResource TextoClaroBrush}"/>
                     <DatePicker x:Name="DtpNacimiento"/>
@@ -80,7 +87,7 @@
 
                     <!-- Buscar -->
                     <Border  Background="{StaticResource TextoClaroBrush}" CornerRadius="10,0,10,0" Margin="50,10">
-                        <Button x:Name="BtnBuscar" Content="Buscar"  Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{StaticResource FondoRecuadrosBrush}"/>
+                        <Button x:Name="BtnBuscar" Content="Buscar"  Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{StaticResource FondoRecuadrosBrush}" Click="BtnBuscarFiltro"/>
                     </Border>
                 </StackPanel>
             </Border>
