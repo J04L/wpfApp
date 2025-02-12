@@ -2,11 +2,12 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:app_wpf"
-             StartupUri="/View/Edicion/EditarHabitacion.xaml">
+             StartupUri="/View/Listas/ListaUsuarios.xaml">
     <Application.Resources>
          <ResourceDictionary>
              <ResourceDictionary.MergedDictionaries>
                  <ResourceDictionary Source="/View/Diccionario/Colors.xaml"></ResourceDictionary>
+                 <ResourceDictionary Source="/View/Diccionario/Estilos.xaml"></ResourceDictionary>
              </ResourceDictionary.MergedDictionaries>
          </ResourceDictionary>
     </Application.Resources>

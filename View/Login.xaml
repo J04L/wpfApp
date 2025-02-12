@@ -19,7 +19,7 @@
                     <RowDefinition Height="557*"/>
                 </Grid.RowDefinitions>
                 <WrapPanel>
-                    <Image Source="image/LogoHotel.jfif" Height="90" Width="90"/>
+                    <Image Source="/image/LogoHotel.jfif" Height="90" Width="90"/>
                     <TextBlock FontSize="40" FontWeight="Bold" VerticalAlignment="Center" 
                            Margin="15,0,0,0" Foreground="{StaticResource TextoClaroBrush}">HOTEL PERE MARÍA</TextBlock>
                 </WrapPanel>
@@ -65,7 +65,7 @@
             </Grid>
 
 
-            <Image Source="image/habitacionMesita.png"  Grid.Column="1" Margin="0,-263,-158,-211"/>
+            <Image Source="/image/habitacionMesita.png"  Grid.Column="1" Margin="0,-263,-158,-211"/>
         </Grid>
     </Border>
 </Window>

@@ -31,24 +31,24 @@
 
 
                         <!--fila 1-->
-                        <StackPanel Grid.Row="0" Grid.Column="0" Margin="20">
+                        <StackPanel Grid.Row="0" Grid.Column="0" Margin="10">
                             <TextBlock Foreground="{StaticResource TextoClaroBrush}">Nombre</TextBlock>
                             <Border Margin="0,0,20,0" Background="{StaticResource DetallesBrush}" CornerRadius="10,10,10,10" BorderBrush="{StaticResource TextoClaroBrush}" BorderThickness="0,0,5,0">
-                                <TextBox BorderBrush="{x:Null}" Background="{x:Null}" Foreground="{StaticResource TextoClaroBrush}"></TextBox>
+                                <TextBox x:Name="TxtNombre" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="{StaticResource TextoClaroBrush}"></TextBox>
                             </Border>
 
                         </StackPanel>
 
-                        <StackPanel Grid.Row="0" Grid.Column="1" Margin="20">
+                        <StackPanel Grid.Row="0" Grid.Column="1" Margin="10">
                             <TextBlock Foreground="{StaticResource TextoClaroBrush}">Apellido</TextBlock>
                             <Border Margin="0,0,20,0" Background="{StaticResource DetallesBrush}" CornerRadius="10,10,10,10" BorderBrush="{StaticResource TextoClaroBrush}" BorderThickness="0,0,5,0">
-                                <TextBox BorderBrush="{x:Null}" Background="{x:Null}" Foreground="{StaticResource TextoClaroBrush}"></TextBox>
+                                <TextBox x:Name="TxtApellido" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="{StaticResource TextoClaroBrush}"></TextBox>
                             </Border>
                         </StackPanel>
 
-                        <StackPanel Grid.Row="0" Grid.Column="2" Margin="20">
+                        <StackPanel Grid.Row="0" Grid.Column="2" Margin="10">
                             <TextBlock Foreground="{StaticResource TextoClaroBrush}">Rol</TextBlock>
-                            <ComboBox  Foreground="{StaticResource TextoClaroBrush}" Style="{StaticResource CustomComboBoxStyle}" >
+                            <ComboBox x:Name="CbxRol"  Foreground="{StaticResource TextoClaroBrush}" Style="{StaticResource CustomComboBoxStyle}" >
                                 <ComboBoxItem Foreground="{StaticResource TextoClaroBrush}">Usuario</ComboBoxItem>
                                 <ComboBoxItem Foreground="{StaticResource TextoClaroBrush}">Empleado</ComboBoxItem>
                                 <ComboBoxItem Foreground="{StaticResource TextoClaroBrush}">Administrador</ComboBoxItem>
@@ -57,29 +57,44 @@
                         </StackPanel>
 
                         <!--fila 2-->
-                        <StackPanel Grid.Row="1" Grid.Column="0" Margin="20">
+                        <StackPanel Grid.Row="1" Grid.Column="0" Margin="10">
                             <TextBlock Foreground="{StaticResource TextoClaroBrush}">Email</TextBlock>
                             <Border Margin="0,0,20,0" Background="{StaticResource DetallesBrush}" CornerRadius="10,10,10,10" BorderBrush="{StaticResource TextoClaroBrush}" BorderThickness="0,0,5,0">
-                                <TextBox BorderBrush="{x:Null}" Background="{x:Null}" Foreground="{StaticResource TextoClaroBrush}"></TextBox>
+                                <TextBox x:Name="TxtEmail" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="{StaticResource TextoClaroBrush}"></TextBox>
                             </Border>
                         </StackPanel>
 
-                        <StackPanel Grid.Row="1" Grid.Column="1" Margin="20">
+                        <StackPanel Grid.Row="1" Grid.Column="1" Margin="10">
                             <TextBlock Foreground="{StaticResource TextoClaroBrush}">DNI</TextBlock>
                             <Border Margin="0,0,20,0" Background="{StaticResource DetallesBrush}" CornerRadius="10,10,10,10" BorderBrush="{StaticResource TextoClaroBrush}" BorderThickness="0,0,5,0">
-                                <TextBox BorderBrush="{x:Null}" Background="{x:Null}" Foreground="{StaticResource TextoClaroBrush}"></TextBox>
+                                <TextBox x:Name="TbxDni" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="{StaticResource TextoClaroBrush}"></TextBox>
                             </Border>
                         </StackPanel>
 
-                        <StackPanel Grid.Row="1" Grid.Column="2" Margin="20">
+                        <StackPanel Grid.Row="1" Grid.Column="2" Margin="10">
                             <TextBlock Foreground="{StaticResource TextoClaroBrush}">Fecha Nacimiento</TextBlock>
-                            <DatePicker Foreground="{StaticResource TextoClaroBrush}"/>
+                            <DatePicker x:Name="DatPickNacimiento" Foreground="{StaticResource TextoClaroBrush}"/>
                         </StackPanel>
 
                         <!--Fila 3-->
-                        <StackPanel Grid.Row="2" Grid.Column="0" Margin="20">
+
+                        <StackPanel Grid.Row="2" Grid.Column="0" Margin="10">
+                            <TextBlock Foreground="{StaticResource TextoClaroBrush}">Password</TextBlock>
+                            <Border Margin="0,0,20,0" Background="{StaticResource DetallesBrush}" CornerRadius="10,10,10,10" BorderBrush="{StaticResource TextoClaroBrush}" BorderThickness="0,0,5,0">
+                                <PasswordBox x:Name="PwdPass" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="{StaticResource TextoClaroBrush}"></PasswordBox>
+                            </Border>
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="2" Grid.Column="1" Margin="10">
+                            <TextBlock Foreground="{StaticResource TextoClaroBrush}">Confirm Password</TextBlock>
+                            <Border Margin="0,0,20,0" Background="{StaticResource DetallesBrush}" CornerRadius="10,10,10,10" BorderBrush="{StaticResource TextoClaroBrush}" BorderThickness="0,0,5,0">
+                                <PasswordBox x:Name="PwdConfirmPass" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="{StaticResource TextoClaroBrush}"></PasswordBox>
+                            </Border>
+                        </StackPanel>
+                        
+                        <StackPanel Grid.Row="2" Grid.Column="2" Margin="10">
                             <TextBlock Foreground="{StaticResource TextoClaroBrush}">Ciudad</TextBlock>
-                            <ComboBox Foreground="{StaticResource TextoClaroBrush}" Style="{StaticResource CustomComboBoxStyle}">
+                            <ComboBox x:Name="CbxCiudad" Foreground="{StaticResource TextoClaroBrush}" Style="{StaticResource CustomComboBoxStyle}">
                                 <ComboBoxItem Foreground="{StaticResource TextoClaroBrush}" Background="{StaticResource FondoDeVentanaBrush}">Alicante</ComboBoxItem>
                                 <ComboBoxItem Foreground="{StaticResource TextoClaroBrush}" Background="{StaticResource FondoDeVentanaBrush}">Valencia</ComboBoxItem>
                                 <ComboBoxItem Foreground="{StaticResource TextoClaroBrush}" Background="{StaticResource FondoDeVentanaBrush}">Madrid</ComboBoxItem>
@@ -89,31 +104,33 @@
                             </ComboBox>
                         </StackPanel>
 
-                        <StackPanel Grid.Row="2" Grid.Column="1" Margin="20">
+                        
+
+                        <!--Fila 4-->
+                        <StackPanel Grid.Row="3" Grid.Column="0">
+                            <TextBlock Foreground="{StaticResource TextoClaroBrush}">Seleccionar imagen de perfil</TextBlock>
+                            <Border  Background="{StaticResource TextoClaroBrush}" CornerRadius="10,0,10,0" >
+                                <Button x:Name="BtnImage" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{StaticResource FondoRecuadrosBrush}">Seleccionar archivo</Button>
+                            </Border>
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="3" Grid.Column="1">
                             <TextBlock Foreground="{StaticResource TextoClaroBrush}">Sexo</TextBlock>
                             <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Stretch">
-                                <RadioButton Foreground="{StaticResource TextoClaroBrush}">M</RadioButton>
-                                <RadioButton Foreground="{StaticResource TextoClaroBrush}">F</RadioButton>
-                                <RadioButton Foreground="{StaticResource TextoClaroBrush}">Sin determinar</RadioButton>
+                                <RadioButton x:Name="RBM" Foreground="{StaticResource TextoClaroBrush}">M</RadioButton>
+                                <RadioButton x:Name="RBF" Foreground="{StaticResource TextoClaroBrush}">F</RadioButton>
+                                <RadioButton x:Name="RBUndetermined" Foreground="{StaticResource TextoClaroBrush}">Sin determinar</RadioButton>
                             </WrapPanel>
                         </StackPanel>
 
-                        <StackPanel Grid.Row="2" Grid.Column="2" Margin="20">
+                        <StackPanel Grid.Row="3" Grid.Column="2" >
                             <TextBlock Foreground="{StaticResource TextoClaroBrush}">Miembro VIP</TextBlock>
                             <Border  Background="{StaticResource TextoClaroBrush}" Style="{StaticResource BorderToggleStyle}" CornerRadius="10,0,10,0" >
                                 <ToggleButton x:Name="ToggleButton" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{StaticResource FondoRecuadrosBrush}">VIP</ToggleButton>
                             </Border>
                         </StackPanel>
-
-                        <!--Fila 4-->
-                        <StackPanel Grid.Row="3" Grid.Column="0" Margin="10">
-                            <TextBlock Foreground="{StaticResource TextoClaroBrush}">Seleccionar imagen de perfil</TextBlock>
-                            <Border  Background="{StaticResource TextoClaroBrush}" CornerRadius="10,0,10,0" >
-                                <Button Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{StaticResource FondoRecuadrosBrush}">Seleccionar archivo</Button>
-                            </Border>
-                        </StackPanel>
                     </Grid>
-                    <Grid >
+                    <Grid Margin="10">
                         <WrapPanel HorizontalAlignment="Right">
                             <Border  Background="{StaticResource TextoClaroBrush}" CornerRadius="10,0,10,0" >
                                 <Button Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{StaticResource FondoRecuadrosBrush}"  Width="125" Height="43" Content="Crear"/>
