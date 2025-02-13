@@ -43,6 +43,8 @@ namespace app_wpf.Model
         [JsonProperty("avatar")]
         public string Avatar { get; set; }
 
+
+
         public Usuario(
             string nombre,
             string email,
