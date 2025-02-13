@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using app_wpf.Model;
+using Microsoft.Win32;
 
 namespace app_wpf
 {
@@ -51,6 +52,35 @@ namespace app_wpf
         private void ButtonRestarCamaIndividual_OnClick(object sender, RoutedEventArgs e)
         {
             if (_viewModel.CamasIndividuales > 0) _viewModel.CamasIndividuales--;
+        }
+        private void SeleccionarImagenButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures),
+                Filter = "\"Imágenes|*.jpg;*.jpeg;*.png;*.bmp;*.gif|Todos los archivos|*.",
+                Title = "Selecciona una imagen"
+            };
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                string rutaImagen = openFileDialog.FileName;
+                Console.Write(openFileDialog.FileName);
+                _viewModel.Foto = rutaImagen;
+
+            }
+        }
+
+        private async void GuardarHabitacionButton_OnCLick(object sender, RoutedEventArgs e)
+        {
+            await ApiClient.PostHabitacion(_viewModel.Foto, _viewModel.GetHabitacion());
+            MessageBox.Show(
+                $"Habitacion creada",
+                "Success",
+                MessageBoxButton.OK,
+                MessageBoxImage.Information
+            );
+            Close();
         }
     }
 }

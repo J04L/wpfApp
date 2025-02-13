@@ -13,7 +13,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
-namespace app_wpf.View.Edicion
+namespace app_wpf
 { 
     class EditarHabitacionVM: INotifyPropertyChanged,INotifyDataErrorInfo, IDataErrorInfo
     {
@@ -21,24 +21,24 @@ namespace app_wpf.View.Edicion
         private int _capacidadAdultos;
         private int _capacidadNinos;
         private string _descripcion;
-        private int _foto;
+        private string _foto;
         private int _camasDobles;
         private int _camasIndividuales;
         private string _tipoHabitacion;
         private double _precio;
         private int _piso;
-        private double _dimesiones;
+        private double _dimensiones;
         public List<TipoHabitacion> ListaTipoHabitaciones;
         
         public double Dimensiones
         {
             get
             {
-                return _dimesiones;
+                return _dimensiones;
             }
             set
             {
-                _dimesiones = value;
+                _dimensiones = value;
                 OnPropertyChanged(nameof(Dimensiones));
             }
         }
@@ -105,7 +105,7 @@ namespace app_wpf.View.Edicion
                 OnPropertyChanged(nameof(Descripcion));
             }
         }
-        public int Foto
+        public string Foto
         {
             get
             {
@@ -246,5 +246,21 @@ namespace app_wpf.View.Edicion
 
         public bool HasErrors { get; }
         public event EventHandler<DataErrorsChangedEventArgs>? ErrorsChanged;
+
+        public Habitacion GetHabitacion()
+        {
+            return new Habitacion(
+                _numero,
+                ListaTipoHabitaciones.Find( tipo => tipo.NombreTipoHabitacion == _tipoHabitacion),
+                new Capacidad(_capacidadAdultos, _capacidadNinos),
+                _descripcion,
+                _precio,
+                MainWindow.Habitaciones.Find( habitacion => habitacion.NumeroHabitacion == Numero).Fotos,
+                new Camas(_camasDobles, _camasIndividuales),
+                _dimensiones,
+                true,
+                _piso
+                );
+        }
     }
 }
