@@ -1,17 +1,19 @@
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using app_wpf.Model;
+using Microsoft.Win32;
 
-namespace app_wpf.View.Edicion
+namespace app_wpf
 {
     public partial class EditarHabitacion : Window
     {
         private EditarHabitacionVM _viewModel = new EditarHabitacionVM();
         public Habitacion Habitacion;
-        public EditarHabitacion()
+        public EditarHabitacion(Habitacion habitacion)
         {
             InitializeComponent();
-            Habitacion = HabitacionPrueba();
+            Habitacion = habitacion;
             DataContext = _viewModel;
             setTipoHabitaciones();
 
@@ -27,12 +29,13 @@ namespace app_wpf.View.Edicion
             _viewModel.Numero = Habitacion.NumeroHabitacion;
             _viewModel.Precio = Habitacion.Precio;
             _viewModel.CapacidadAdultos = Habitacion.TipoHabitacion.Capacidad.Adultos;
-            _viewModel.CapacidadNinos =  Habitacion.TipoHabitacion.Capacidad.Adultos;
+            _viewModel.CapacidadNinos =  Habitacion.TipoHabitacion.Capacidad.Menores;
             _viewModel.Descripcion = Habitacion.Descripcion;
             _viewModel.CamasDobles = Habitacion.Camas.Doble;
             _viewModel.CamasIndividuales = Habitacion.Camas.Individual;
             _viewModel.Piso = Habitacion.Piso;
             _viewModel.Dimensiones = Habitacion.Dimensiones;
+            _viewModel.Foto = Habitacion.Fotos[0];
         }
 
         private void ButtonSumarCamaDoble_OnClick(object sender, RoutedEventArgs e)
@@ -55,37 +58,15 @@ namespace app_wpf.View.Edicion
             if (_viewModel.CamasIndividuales > 0) _viewModel.CamasIndividuales--;
         }
 
-        public Habitacion HabitacionPrueba()
+        private async void GuardarHabitacionButton_OnCLick(object sender, RoutedEventArgs e)
         {
-            // Crear la capacidad de la habitación (2 adultos, 1 menor)
-            Capacidad capacidad = new Capacidad(2, 1);
-
-            // Crear el tipo de habitación
-            TipoHabitacion tipoHabitacion = new TipoHabitacion
-            {
-                NombreTipoHabitacion = "Suite",
-                PrecioBase = 200.50,
-                Capacidad = capacidad,
-                CapacidadCamas = 3
-            };
-
-            // Crear las camas (1 individual, 1 doble)
-            Camas camas = new Camas(4, 1);
-
-            // Crear la habitación con los valores de prueba
-            Habitacion habitacion = new Habitacion(
-                numeroHabitacion: 101,
-                tipoHabitacion: tipoHabitacion,
-                capacidad: capacidad, 
-                descripcion: "Una suite ejecutiva con vista al mar.",
-                precio: 300.75,
-                fotos: new List<string> { "foto1.jpg", "foto2.jpg" },
-                camas: camas,
-                dimensiones: 45.5,
-                disponible: true,
-                piso: 5
+            await ApiClient.PutHabitacion( _viewModel.GetHabitacion());
+            MessageBox.Show(
+                $"Habitacion Editada",
+                "Success",
+                MessageBoxButton.OK,
+                MessageBoxImage.Information
             );
-            return habitacion;
         }
     }
 }

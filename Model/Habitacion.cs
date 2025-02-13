@@ -10,7 +10,7 @@ using Newtonsoft.Json;
 
 namespace app_wpf.Model
 {
-    public class Habitacion
+    public class Habitacion: JsonSerializer
     {
         [JsonProperty ("numeroHabitacion")]
         public int NumeroHabitacion { get; set; }

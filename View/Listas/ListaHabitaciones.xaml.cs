@@ -25,6 +25,7 @@ namespace app_wpf
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static List<Habitacion> Habitaciones;
         public MainWindow()
         {
             InitializeComponent();
@@ -60,7 +61,7 @@ namespace app_wpf
 
         public async void fillLisViewHabitaciones()
         {
-            Habitacion[] HabitacionesEnBDD = await ApiClient.GetHabitacionesFiltradasAsync(
+            Habitaciones = await ApiClient.GetHabitacionesFiltradasAsync(
                 (tipoHabitacionesFiltroCombobox.SelectedItem.ToString() == "Cualquiera"
                     ? null
                     : tipoHabitacionesFiltroCombobox.SelectedItem.ToString()),
@@ -73,7 +74,7 @@ namespace app_wpf
             );
             List<HabitacionListView> habitaciones = new List<HabitacionListView>();
 
-            foreach (var habitacion in HabitacionesEnBDD)
+            foreach (var habitacion in Habitaciones)
             {
                 habitaciones.Add(new HabitacionListView(habitacion));
             }
@@ -88,7 +89,47 @@ namespace app_wpf
 
         private void ButtonFiltro_OnClick(object sender, RoutedEventArgs e)
         {
-           
+           fillLisViewHabitaciones();
+        }
+
+        private void  EditarHabitacionButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (DataGridHabitaciones.SelectedIndex != -1){
+                EditarHabitacion ventanaEditar = new EditarHabitacion(Habitaciones[DataGridHabitaciones.SelectedIndex]);
+                ventanaEditar.Show();
+            }
+            //TODO corregir errores
+        }
+        private void  CrearHabitacionButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            CrearHabitacion ventanaCrear = new CrearHabitacion();
+            ventanaCrear.Show();
+            //TODO corregir errores
+        }
+
+        private async void EliminarHabitacionButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            if(DataGridHabitaciones.SelectedIndex != -1){
+                Habitacion habitacion = Habitaciones[DataGridHabitaciones.SelectedIndex];
+                MessageBoxResult result = MessageBox.Show(
+                    $"¿Estás seguro de que quieres eliminar la habitación {habitacion.NumeroHabitacion}?",
+                    "Confirmar Eliminación",
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.Warning
+                );
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    await ApiClient.DeleteHabitacion(Habitaciones[DataGridHabitaciones.SelectedIndex]);
+                    MessageBox.Show("Habitación eliminada correctamente.", "Éxito", MessageBoxButton.OK,
+                            MessageBoxImage.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Eliminación cancelada.", "Cancelado", MessageBoxButton.OK,
+                        MessageBoxImage.Information);
+                }
+            }
         }
     }
 
