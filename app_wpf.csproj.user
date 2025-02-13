@@ -6,8 +6,24 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
+    <Compile Update="View\Creacion\CrearReserva.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Creacion\Rerservas.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Listas\ListaReservas.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="View\Creacion\CrearReserva.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Creacion\Rerservas.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\Diccionario\Colors.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -15,6 +31,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\Listas\ListaHabitaciones.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Listas\ListaReservas.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

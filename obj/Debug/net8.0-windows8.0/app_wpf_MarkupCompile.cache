@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\ilove\Desktop\clase\curso_2\intermod psp\API\wpfApp\obj\Debug\net8.0-windows8.0\
+C:\Users\drago\Documents\GitHub\wpfApp\obj\Debug\net8.0-windows8.0\
 app_wpf
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-C:\Users\ilove\Desktop\clase\curso_2\intermod psp\API\wpfApp\App.xaml
+C:\Users\drago\Documents\GitHub\wpfApp\App.xaml
 8642628315
 4892249481
 15-249104461
-200-1576380944
+198-556154604
 View\Creacion\CrearHabitacion.xaml;View\Creacion\NuevoUser.xaml;View\Diccionario\Colors.xaml;View\Diccionario\Estilos.xaml;View\Edicion\EditarHabitacion.xaml;View\Listas\ListaHabitaciones.xaml;View\Listas\ListaUsuarios.xaml;View\Login.xaml;
 
-False
+True
 

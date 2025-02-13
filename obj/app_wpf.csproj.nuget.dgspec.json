@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ilove\\Desktop\\clase\\curso_2\\intermod psp\\API\\wpfApp\\app_wpf.csproj": {}
+    "C:\\Users\\drago\\Documents\\GitHub\\wpfApp\\app_wpf.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ilove\\Desktop\\clase\\curso_2\\intermod psp\\API\\wpfApp\\app_wpf.csproj": {
+    "C:\\Users\\drago\\Documents\\GitHub\\wpfApp\\app_wpf.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ilove\\Desktop\\clase\\curso_2\\intermod psp\\API\\wpfApp\\app_wpf.csproj",
+        "projectUniqueName": "C:\\Users\\drago\\Documents\\GitHub\\wpfApp\\app_wpf.csproj",
         "projectName": "app_wpf",
-        "projectPath": "C:\\Users\\ilove\\Desktop\\clase\\curso_2\\intermod psp\\API\\wpfApp\\app_wpf.csproj",
-        "packagesPath": "C:\\Users\\ilove\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ilove\\Desktop\\clase\\curso_2\\intermod psp\\API\\wpfApp\\obj\\",
+        "projectPath": "C:\\Users\\drago\\Documents\\GitHub\\wpfApp\\app_wpf.csproj",
+        "packagesPath": "C:\\Users\\drago\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\drago\\Documents\\GitHub\\wpfApp\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ilove\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\drago\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -43,8 +39,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.100"
+        }
       },
       "frameworks": {
         "net8.0-windows8.0": {
@@ -78,7 +73,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
