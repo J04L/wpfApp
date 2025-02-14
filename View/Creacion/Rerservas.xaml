@@ -1,12 +1,152 @@
-﻿<Window x:Class="app_wpf.View.Creacion.Rerservas"
+﻿<Window x:Class="app_wpf.View.Creacion.Reservas"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:app_wpf.View.Creacion"
         mc:Ignorable="d"
-        Title="Rerservas" Height="450" Width="800">
+                  Title="FiltroReservas" Height="675px" Width="1200px" Background="#143444">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100*"/>
+            <RowDefinition Height="300*"/>
+            <RowDefinition Height="500*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Encabezado -->
+        <Grid Grid.ColumnSpan="2" Margin="0,0,0,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+
+            </Grid.ColumnDefinitions>
+            <WrapPanel>
+                <Image Source="/icon.jpg"></Image>
+                <TextBlock FontSize="24" FontWeight="Bold" VerticalAlignment="Center" Foreground="#84b026" Margin="15,0,0,0">HOTEL PERE MARÍA</TextBlock>
+            </WrapPanel>
+            <Button Foreground="White" Grid.Column="1" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="18" FontWeight="Bold">Buscador</Button>
+            <Button Foreground="White" Grid.Column="2" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="18" FontWeight="Bold">Usuarios</Button>
+            <Button Foreground="White" Grid.Column="3" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="18" FontWeight="Bold">Reservas</Button>
+            <Button Foreground="White" Grid.Column="4" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="18" FontWeight="Bold">Habitaciones</Button>
+        </Grid>
+
+
+
+
+
+        <!-- Sección Buscador -->
+        <StackPanel Grid.Row="1">
+            <TextBlock x:Name="TituloBuscador" FontFamily="Montserrat" Margin="10,0" FontSize="30" Foreground="#84b026" FontWeight="Bold">Buscador:</TextBlock>
+            <Border x:Name="ContenedorBuscador" Background="#161f30" BorderBrush="#3d3d3d" BorderThickness="5" Margin="10" CornerRadius="20" Padding="10">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Selección de número de huéspedes y extras -->
+                    <StackPanel>
+                        <Label FontFamily="Montserrat" Foreground="White">Número de huéspedes</Label>
+                        <ComboBox x:Name="CapacidadComboBox" Width="50" HorizontalAlignment="Left">
+                            <ComboBoxItem>1</ComboBoxItem>
+                            <ComboBoxItem>2</ComboBoxItem>
+                            <ComboBoxItem>3</ComboBoxItem>
+                            <ComboBoxItem>4</ComboBoxItem>
+                            <ComboBoxItem>5</ComboBoxItem>
+                            <ComboBoxItem>6</ComboBoxItem>
+                            <ComboBoxItem>7</ComboBoxItem>
+                            <ComboBoxItem>8</ComboBoxItem>
+                            <ComboBoxItem>9</ComboBoxItem>
+                            <ComboBoxItem>10</ComboBoxItem>
+                        </ComboBox>
+
+                        <Label FontFamily="Montserrat" Foreground="White">Extras</Label>
+                        <WrapPanel>
+                            <CheckBox x:Name="CheckCuna" Foreground="White">Cuna</CheckBox>
+                            <CheckBox x:Name="CheckCamaExtra" Foreground="White">Cama extra</CheckBox>
+                        </WrapPanel>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1" Margin="0">
+                        <WrapPanel>
+                            <StackPanel>
+                                <Label Foreground="White">Fecha de entrada</Label>
+                                <DatePicker x:Name="FechaEntrada"></DatePicker>
+                            </StackPanel>
+
+                            <StackPanel>
+                                <Label Foreground="White">Fecha de salida</Label>
+                                <DatePicker x:Name="FechaSalida"></DatePicker>
+                            </StackPanel>
+                        </WrapPanel>
+
+                        <WrapPanel Margin="0,10">
+                            <Label Foreground="White">Precio Noche</Label>
+                            <TextBox x:Name="PrecioNocheTextBox" Width="60" Height="30"></TextBox>
+
+                            <StackPanel Margin="5,0">
+                                <Label Foreground="White">Tipo habitación</Label>
+                                <WrapPanel>
+                                    <RadioButton x:Name="TipoHabitacionNormal" GroupName="tipoHabitacion" Margin="5" Foreground="White">Normal</RadioButton>
+                                    <RadioButton x:Name="TipoHabitacionSuit" GroupName="tipoHabitacion" Margin="5" Foreground="White">Suit</RadioButton>
+                                    <RadioButton x:Name="TipoHabitacionPresidencial" GroupName="tipoHabitacion" Margin="5" Foreground="White">Presidencial</RadioButton>
+                                </WrapPanel>
+                            </StackPanel>
+                        </WrapPanel>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="2">
+                        <Label FontFamily="Montserrat" Foreground="White">¿Miembro VIP?</Label>
+                        <CheckBox x:Name="VipCheckBox"></CheckBox>
+
+                        <Label FontFamily="Montserrat" Foreground="White">En Oferta</Label>
+                        <CheckBox x:Name="OfertaCheckBox"></CheckBox>
+
+                        <Border Background="#84b026" Width="100" Height="30" HorizontalAlignment="Right" Margin="10" CornerRadius="15">
+                            <Button x:Name="BuscarHabitacionesButton" Click="BuscarHabitaciones_Click" Background="Transparent" BorderBrush="Transparent" Foreground="#161f30">Buscar</Button>
+                        </Border>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </StackPanel>
+
+
+
+        <!-- Sección Resultados -->
+        <StackPanel Grid.Row="2" Margin="0,0,0,0">
+            <TextBlock FontFamily="Montserrat" Margin="10,0" FontSize="30" Foreground="#217373" FontWeight="Bold">Resultados:</TextBlock>
+
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Height="320">
+                <ItemsControl x:Name="HabitacionesItemsControl" ItemsSource="{Binding habitaciones}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border Background="#161f30" CornerRadius="10" Padding="10" Margin="10" Width="250">
+                                <StackPanel>
+                                    <Image Source="{Binding Fotos[0]}" Height="150" Width="200" HorizontalAlignment="Center"/>
+                                    <Label FontFamily="Montserrat" FontSize="20" HorizontalAlignment="Center" Foreground="White" Content="{Binding TipoHabitacion.NombreTipoHabitacion}"/>
+                                    <TextBlock Foreground="#84b026" HorizontalAlignment="Center" FontSize="18" Text="{Binding Precio, StringFormat={}{0}€/noche}"/>
+                                    <Border CornerRadius="20" Background="#217373" HorizontalAlignment="Center">
+                                        <Button Background="Transparent" BorderBrush="Transparent" Foreground="White" Click="ReservarHabitacion_Click">
+                                            <Label FontFamily="Montserrat" FontSize="18" Padding="10,5,10,5" Content="Reservar"/>
+                                        </Button>
+                                    </Border>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </StackPanel>
+
     </Grid>
 </Window>
+

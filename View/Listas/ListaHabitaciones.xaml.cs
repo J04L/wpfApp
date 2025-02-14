@@ -163,7 +163,7 @@ namespace app_wpf
 
         private void CambiarVentanaReservas_OnClick(object sender, RoutedEventArgs e)
         {
-            new Rerservas().Show();
+            new Reservas().Show();
             Close();
         }
 

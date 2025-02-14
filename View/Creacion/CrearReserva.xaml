@@ -5,8 +5,94 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:app_wpf.View.Creacion"
         mc:Ignorable="d"
-        Title="CrearReserva" Height="450" Width="800">
+                Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Border BorderBrush="#3d3d3d" BorderThickness="5" Background="#143444" HorizontalAlignment="Center" VerticalAlignment="Center" Width="700" Height="350" CornerRadius="15">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="3*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <!--FILA 0-->
+                <Label Foreground="#84b026" FontWeight="Bold" FontSize="20" VerticalAlignment="Center" 
+                   HorizontalAlignment="Center">CREAR RESERVA</Label>
+
+                <!--GRID 1 FILA 1 -->
+                <StackPanel Grid.Row="1">
+                    <Image Source="/OIP.jpg" Margin="10"></Image>
+                    <Label Foreground="White" HorizontalAlignment="Center">Habitacion</Label>
+                </StackPanel>
+
+                <!--GRID 2-->
+                <Grid  Margin="10" Grid.Column="1" Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="2*"></ColumnDefinition>
+
+                    </Grid.ColumnDefinitions>
+                    <!--GRID 2 FILA 1-->
+                    <StackPanel>
+                        <Label Foreground="White">Fecha de entrada</Label>
+                        <Label Foreground="White">dd/mm/yy</Label>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1">
+                        <Label Foreground="White">Fecha salida</Label>
+                        <Label Foreground="White">dd/mm/yy</Label>
+                    </StackPanel>
+                    <StackPanel Grid.Column="2">
+                        <Label Foreground="White">Huespedes</Label>
+                        <Label Foreground="White">nº</Label>
+                    </StackPanel>
+
+                    <!--GRID 2 FILA 2-->
+                    <StackPanel Grid.Row="1" Grid.Column="0">
+                        <Label Foreground="White">Precio</Label>
+                        <Label Foreground="#84b026" FontSize="20">NA€</Label>
+                    </StackPanel>
+
+                    <!--GRID 2 FILA 3-->
+                    <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3">
+
+                        <Label Foreground="White">Cliente</Label>
+                        <WrapPanel>
+                            <StackPanel Width="80">
+                                <TextBlock>Nombre</TextBlock>
+                                <TextBox></TextBox>
+                            </StackPanel>
+                            <StackPanel Margin="5,0" Width="100">
+                                <TextBlock>Apellidos</TextBlock>
+                                <TextBox></TextBox>
+                            </StackPanel>
+                            <StackPanel Margin="5,0" Width="140">
+                                <TextBlock>Email</TextBlock>
+                                <TextBox></TextBox>
+                            </StackPanel>
+                            <StackPanel Margin="5,0" Width="80">
+                                <TextBlock>DNI</TextBlock>
+                                <TextBox></TextBox>
+                            </StackPanel>
+                        </WrapPanel>
+                        <Label Foreground="White">NombreCliente - emailCliente</Label>
+                    </StackPanel>
+
+                </Grid>
+                <!--GRID 1 FILA 2-->
+                <Border Grid.Row="2" Grid.ColumnSpan="2" Background="#84b026" 
+                    Width="100" Height="30" HorizontalAlignment="Right" Margin="10" CornerRadius="15">
+                    <Button  Background="Transparent" BorderBrush="Transparent" Foreground="#161f30">Crear Reserva</Button>
+                </Border>
+            </Grid>
+        </Border>
     </Grid>
 </Window>
