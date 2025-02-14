@@ -216,7 +216,7 @@ namespace app_wpf
 
         private void Reservar_click(object sender, RoutedEventArgs e)
         {
-            var reservar = new Rerservas();
+            var reservar = new Reservas();
             reservar.Show();
             Close();
         }
