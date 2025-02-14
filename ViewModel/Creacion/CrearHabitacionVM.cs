@@ -177,7 +177,8 @@ namespace app_wpf
                 switch (name)
                 {
                     case "Numero":
-                        if (MainWindow.Habitaciones.Select(habitacion => habitacion.NumeroHabitacion).Contains(Numero))
+                        Console.WriteLine(habitaciones);
+                        if (habitaciones.Select(habitacion => habitacion.NumeroHabitacion).Contains(Numero))
                         {
                             return "El numero de habitacion ya existe";
                         }
@@ -255,7 +256,7 @@ namespace app_wpf
                 new Capacidad(_capacidadAdultos, _capacidadNinos),
                 _descripcion,
                 _precio,
-                new List<string>(),
+                new List<string>() {_foto},
                 new Camas(_camasDobles, _camasIndividuales),
                 _dimensiones,
                 true,
