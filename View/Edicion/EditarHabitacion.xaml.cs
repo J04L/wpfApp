@@ -25,8 +25,10 @@ namespace app_wpf
             TipoHabitacionesComboBox.SelectedIndex = lista.FindIndex(tipo => tipo.NombreTipoHabitacion == Habitacion.TipoHabitacion.NombreTipoHabitacion);
             
             // Establecer valores iniciales
+            _viewModel.habitaciones = await ApiClient.GetHabitaciones();
             _viewModel.ListaTipoHabitaciones = lista;
-            _viewModel.Numero = Habitacion.NumeroHabitacion;
+            _viewModel.NumeroOriginal = Habitacion.NumeroHabitacion;
+            _viewModel.Numero = _viewModel.NumeroOriginal;
             _viewModel.Precio = Habitacion.Precio;
             _viewModel.CapacidadAdultos = Habitacion.TipoHabitacion.Capacidad.Adultos;
             _viewModel.CapacidadNinos =  Habitacion.TipoHabitacion.Capacidad.Menores;
@@ -61,15 +63,40 @@ namespace app_wpf
 
         private async void GuardarHabitacionButton_OnCLick(object sender, RoutedEventArgs e)
         {
-            await ApiClient.PutHabitacion( _viewModel.GetHabitacion());
-            MessageBox.Show(
-                $"Habitacion Editada",
-                "Success",
-                MessageBoxButton.OK,
-                MessageBoxImage.Information
-            );
-
-            Close();
+            try
+            {
+                if (!_viewModel.HasErrors)
+                {
+                    await ApiClient.PutHabitacion(_viewModel.GetHabitacion());
+                    MessageBox.Show(
+                        "Habitación editada",
+                        "Éxito",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Information
+                    );
+                    _viewModel.habitaciones = await ApiClient.GetHabitaciones();
+                    Close(); // Se ejecuta solo cuando la tarea ha terminado
+                    
+                }
+                else
+                {
+                    MessageBox.Show(
+                        $"Corrige los errores antes de editar",
+                        "Error",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Error
+                    );
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    $"Error al editar la habitación: {ex.Message}",
+                    "Error",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error
+                );
+            }
         }
     }
 }

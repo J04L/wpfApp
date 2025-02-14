@@ -45,7 +45,6 @@ public class ApiClient
         {
             var extension = fs.Name.Substring(fs.Name.LastIndexOf('.') + 1);
             streamContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/" + extension);
-            
             form.Add(streamContent, "imagen", Path.GetFileName(rutaImagen));
             // Convertir objeto Habitacion a JSON
             string json = JsonConvert.SerializeObject(habitacion);
@@ -145,6 +144,22 @@ public class ApiClient
                 string json = await response.Content.ReadAsStringAsync();
                 List<TipoHabitacion> tipoHabitaciones = JsonConvert.DeserializeObject<List<TipoHabitacion>>(json);
                 return tipoHabitaciones;
+            }
+
+            return null;
+        }
+    }
+    public static async Task<List<Habitacion>> GetHabitaciones()
+    {
+        using (HttpClient client = new HttpClient())
+        {
+            string url = "http://localhost:3036/api/habitacion";
+            HttpResponseMessage response = await client.GetAsync(url);
+            if (response.IsSuccessStatusCode)
+            {
+                string json = await response.Content.ReadAsStringAsync();
+                List<Habitacion> habitacion = JsonConvert.DeserializeObject<List<Habitacion>>(json);
+                return habitacion;
             }
 
             return null;

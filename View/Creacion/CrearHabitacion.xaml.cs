@@ -17,14 +17,17 @@ namespace app_wpf
 
         }
 
-        public async void setTipoHabitaciones()
+        public async Task setTipoHabitaciones()
         {
             var lista = await ApiClient.GetTipoHabitaciones();
+            _viewModel.habitaciones = await ApiClient.GetHabitaciones();
+            var hab = _viewModel.habitaciones;
             _viewModel.ListaTipoHabitaciones = lista;
             TipoHabitacionesComboBox.ItemsSource = lista.Select(tipo => tipo.NombreTipoHabitacion);
             TipoHabitacionesComboBox.SelectedIndex = 0;
 
             // Establecer valores iniciales
+            Console.WriteLine(_viewModel.habitaciones.Select(habitacion => habitacion.NumeroHabitacion).ToString());
             _viewModel.TipoHabitacion = lista[0].NombreTipoHabitacion;
             _viewModel.Numero = 6;
             _viewModel.CapacidadAdultos = 2;
@@ -78,14 +81,27 @@ namespace app_wpf
         {
             try
             {
-                await ApiClient.PostHabitacion(_viewModel.Foto, _viewModel.GetHabitacion());
-                MessageBox.Show(
-                    "Habitación creada",
-                    "Éxito",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Information
-                );
-                Close(); // Se ejecuta solo cuando la tarea ha terminado
+                if (!_viewModel.HasErrors)
+                {
+                    await ApiClient.PostHabitacion(_viewModel.Foto, _viewModel.GetHabitacion());
+                    MessageBox.Show(
+                        "Habitación creada",
+                        "Éxito",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Information
+                    );
+                    _viewModel.habitaciones = await ApiClient.GetHabitaciones();
+                    Close(); // Se ejecuta solo cuando la tarea ha terminado
+                }
+                else
+                {
+                    MessageBox.Show(
+                        $"Corrige los errores antes de guardar",
+                        "Error",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Error
+                    );
+                }
             }
             catch (Exception ex)
             {

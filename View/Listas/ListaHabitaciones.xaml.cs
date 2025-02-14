@@ -61,7 +61,7 @@ namespace app_wpf
 
         }
 
-        public async void fillLisViewHabitaciones()
+        public async  void fillLisViewHabitaciones()
         {
             Habitaciones = await ApiClient.GetHabitacionesFiltradasAsync(
                 (tipoHabitacionesFiltroCombobox.SelectedItem.ToString() == "Cualquiera"
@@ -101,13 +101,21 @@ namespace app_wpf
                 ventanaEditar.Show();
                 fillLisViewHabitaciones();
             }
+            else
+            {
+                MessageBox.Show(
+                    $"Selecciona una habitacion primero",
+                    "Error",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error
+                );
+            }
             //TODO corregir errores
         }
         private void  CrearHabitacionButton_OnClick(object sender, RoutedEventArgs e)
         {
             CrearHabitacion ventanaCrear = new CrearHabitacion();
             ventanaCrear.Show();
-            fillLisViewHabitaciones();
             //TODO corregir errores
         }
 
@@ -133,6 +141,16 @@ namespace app_wpf
                     MessageBox.Show("Eliminación cancelada.", "Cancelado", MessageBoxButton.OK,
                         MessageBoxImage.Information);
                 }
+            }
+            else
+            {
+               
+                MessageBox.Show(
+                    $"Selecciona una habitacion primero",
+                    "Error",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error
+                );
             }
             fillLisViewHabitaciones();
         }
