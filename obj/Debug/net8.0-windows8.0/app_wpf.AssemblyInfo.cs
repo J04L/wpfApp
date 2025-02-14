@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("app_wpf")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ae83537bea4fb1468c00afec249a2c6d801d9b52")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9ebaddec9d894feda9c84a31fab7d33f93c8e76c")]
 [assembly: System.Reflection.AssemblyProductAttribute("app_wpf")]
 [assembly: System.Reflection.AssemblyTitleAttribute("app_wpf")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

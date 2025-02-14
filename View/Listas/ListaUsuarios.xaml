@@ -58,6 +58,7 @@
                     <TextBlock Text="Rol"  Margin="0,10,0,5" Foreground="{StaticResource TextoClaroBrush}"/>
                     <ComboBox x:Name="CbxRol" Style="{StaticResource CustomComboBoxStyle}">
                         <ComboBoxItem Content="Administrador" />
+                        <ComboBoxItem Content="Empleado" />
                         <ComboBoxItem Content="Cliente" />
                     </ComboBox>
                     <!-- Fecha de nacimiento -->
@@ -67,9 +68,12 @@
                     <!-- Ciudad -->
                     <TextBlock Text="Ciudad"  Margin="0,10,0,5" Foreground="{StaticResource TextoClaroBrush}"/>
                     <ComboBox x:Name="CbxCiudad" Style="{StaticResource CustomComboBoxStyle}">
-                        <ComboBoxItem Content="Alicante" />
-                        <ComboBoxItem Content="Barcelona" />
-                        <ComboBoxItem Content="Madrid" />
+                        <ComboBoxItem Foreground="{StaticResource TextoClaroBrush}" Background="{StaticResource FondoDeVentanaBrush}">Alicante</ComboBoxItem>
+                        <ComboBoxItem Foreground="{StaticResource TextoClaroBrush}" Background="{StaticResource FondoDeVentanaBrush}">Valencia</ComboBoxItem>
+                        <ComboBoxItem Foreground="{StaticResource TextoClaroBrush}" Background="{StaticResource FondoDeVentanaBrush}">Madrid</ComboBoxItem>
+                        <ComboBoxItem Foreground="{StaticResource TextoClaroBrush}" Background="{StaticResource FondoDeVentanaBrush}">Barcelona</ComboBoxItem>
+                        <ComboBoxItem Foreground="{StaticResource TextoClaroBrush}" Background="{StaticResource FondoDeVentanaBrush}">Elche</ComboBoxItem>
+                        <ComboBoxItem Foreground="{StaticResource TextoClaroBrush}" Background="{StaticResource FondoDeVentanaBrush}">Leon</ComboBoxItem>
                     </ComboBox>
 
                     <!-- Sexo -->
@@ -101,7 +105,11 @@
                                 <ColumnDefinition></ColumnDefinition>
                             </Grid.ColumnDefinitions>
                             <Border CornerRadius="66,0,0,0" HorizontalAlignment="Left" Background="{DynamicResource DetallesBrush}" BorderBrush="{DynamicResource DetallesBrush}">
-                                <Button HorizontalAlignment="Left" Width="200" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{DynamicResource TextoClaroBrush}" Click="NuevoUser_click">+</Button>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button HorizontalAlignment="Left" Width="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{DynamicResource TextoClaroBrush}" Click="NuevoUser_click">+</Button>
+                                    <Button Content="✏️" Width="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{DynamicResource TextoClaroBrush}" Click="BtnEditarUsuario_Click"/>
+                                    <Button Content="🗑️" Width="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{DynamicResource TextoClaroBrush}" Click="BtnEliminarUsuario_Click"/>
+                                </StackPanel>
                             </Border>
                             <TextBlock Grid.Column="1" FontSize="24" FontWeight="Bold" HorizontalAlignment="Right" Foreground="#FF024959">USUARIOS</TextBlock>
                         </Grid>
@@ -121,8 +129,8 @@
 
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="150"/>
+                            <DataGridTextColumn Header="Apellido" Binding="{Binding Apellido}" Width="120"/>
                             <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="200"/>
-                            <DataGridTextColumn Header="Usuario" Binding="{Binding Username}" Width="120"/>
                             <DataGridTextColumn Header="Rol" Binding="{Binding Role}" Width="100"/>
                             <DataGridTextColumn Header="VIP" Binding="{Binding Vip}" Width="70"/>
                             <DataGridTextColumn Header="Ciudad" Binding="{Binding Ciudad}" Width="150"/>
@@ -136,18 +144,8 @@
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
 
-                            <!-- Columna de Herramientas -->
-                            <DataGridTemplateColumn Header="Herramientas" Width="180">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                            <Button Content="✅" Command="{Binding DataContext.AprobarCommand, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}"/>
-                                            <Button Content="❌" Command="{Binding DataContext.RechazarCommand, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}"/>
-                                            <Button Content="🗑️" Command="{Binding DataContext.EliminarCommand, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}"/>
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
+
+                                            
                         </DataGrid.Columns>
                     </DataGrid>
                 </StackPanel>

@@ -1,17 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Media.Imaging;
 using Newtonsoft.Json;
 
 namespace app_wpf.Model
 {
     public class Usuario
     {
+        [JsonProperty("_id")]
+        public string Id { get; set; }
+
         [JsonProperty("nombre")]
         public string Nombre { get; set; }
+
+        [JsonProperty("apellido")]
+        public string Apellido { get; set; }
 
         [JsonProperty("email")]
         public string Email { get; set; }
@@ -26,7 +28,7 @@ namespace app_wpf.Model
         public string Password { get; set; }
 
         [JsonProperty("birthday")]
-        public string Birthday { get; set; }
+        public DateTime? Birthday { get; set; }
 
         [JsonProperty("sex")]
         public string Sex { get; set; }
@@ -42,54 +44,45 @@ namespace app_wpf.Model
 
         [JsonProperty("avatar")]
         public string Avatar { get; set; }
-
-
-
-        public Usuario(
-            string nombre,
-            string email,
-            string dni,
-            string username,
-            string password,
-            string birthday,
-            string sex,
-            string ciudad,
-            bool vip,
-            string role = "Cliente",
-            string avatar = "")
-        {
-            Nombre = nombre;
-            Email = email;
-            Dni = dni;
-            Username = username;
-            Password = password;
-            Birthday = birthday;
-            Sex = sex;
-            Ciudad = ciudad;
-            Vip = vip;
-            Role = role;
-            Avatar = avatar;
-        }
     }
+
     public class UsuarioListView
     {
+        public string Id { get; set; }
         public string Nombre { get; set; }
+        public string Apellido { get; set; }
         public string Email { get; set; }
+        public string Dni { get; set; }
         public string Username { get; set; }
-        public string Role { get; set; }
-        public string Vip { get; set; }
+        public string Password { get; set; }
+        public string Birthday { get; set; }
+        public string Sex { get; set; }
         public string Ciudad { get; set; }
+        public string Vip { get; set; }
+        public string Role { get; set; }
         public string Avatar { get; set; }
 
         public UsuarioListView(Usuario usuario)
         {
+            Id = usuario.Id;
             Nombre = usuario.Nombre;
+            Apellido = usuario.Apellido;
             Email = usuario.Email;
+            Dni = usuario.Dni;
             Username = usuario.Username;
-            Role = usuario.Role;
-            Vip = usuario.Vip ? "Sí" : "No";
+            Password = usuario.Password;
+            Birthday = usuario.Birthday?.ToString("yyyy-MM-dd") ?? "N/A";
+            Sex = usuario.Sex;
             Ciudad = usuario.Ciudad;
+            Vip = usuario.Vip ? "Sí" : "No";
+            Role = usuario.Role;
             Avatar = usuario.Avatar;
+        }
+
+        public override string ToString()
+        {
+            return $"Id: {Id}, Nombre: {Nombre} {Apellido}, Email: {Email}, DNI: {Dni}, Username: {Username}, " +
+                   $"Fecha de Nacimiento: {Birthday}, Sexo: {Sex}, Ciudad: {Ciudad}, VIP: {Vip}, Rol: {Role}, Avatar: {Avatar}";
         }
     }
 }
