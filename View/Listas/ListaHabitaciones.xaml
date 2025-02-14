@@ -242,7 +242,7 @@
                         <Border BorderThickness="1,0,0,0" BorderBrush="{StaticResource TextoClaroBrush}" Padding="4,0,0,4" CornerRadius="0,0,0,10">
                             <StackPanel Margin="0,0,0,3">
                                 <TextBlock FontSize="16" FontWeight="Bold" Foreground="{StaticResource TextoClaroBrush}">Tipo</TextBlock>
-                                <ComboBox x:Name="tipoHabitacionesFiltroCombobox" FontSize="16"/>
+                                <ComboBox Width="200"  HorizontalAlignment="Right" Style="{StaticResource CustomComboBoxStyle}" x:Name="tipoHabitacionesFiltroCombobox" FontSize="16"/>
                             </StackPanel>
                         </Border>
                         <Border BorderThickness="1,0,0,0" BorderBrush="{StaticResource TextoClaroBrush}" Padding="4,0,0,4" CornerRadius="0,0,0,10">
@@ -318,7 +318,7 @@
                                     <Button Click="CrearHabitacionButton_OnClick" HorizontalAlignment="Left" FontWeight="Bold" FontSize="20" Width="70" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{DynamicResource TextoClaroBrush}">➕</Button>
                                 </WrapPanel>
                             </Border>
-                            <TextBlock Grid.Column="1" FontSize="24" FontWeight="Bold" HorizontalAlignment="Right" Foreground="#FF024959">HABITACIONES</TextBlock>
+                            <TextBlock Grid.Column="1" FontSize="24" FontWeight="Bold" HorizontalAlignment="Right" Foreground="{DynamicResource TextoOscuroBrush}">HABITACIONES</TextBlock>
                         </Grid>
                     </Border>
                     <Grid>

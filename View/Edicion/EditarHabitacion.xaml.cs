@@ -36,6 +36,7 @@ namespace app_wpf
             _viewModel.Piso = Habitacion.Piso;
             _viewModel.Dimensiones = Habitacion.Dimensiones;
             _viewModel.Foto = Habitacion.Fotos[0];
+            Console.WriteLine(Habitacion.Fotos[0]);
         }
 
         private void ButtonSumarCamaDoble_OnClick(object sender, RoutedEventArgs e)
@@ -67,6 +68,8 @@ namespace app_wpf
                 MessageBoxButton.OK,
                 MessageBoxImage.Information
             );
+
+            Close();
         }
     }
 }

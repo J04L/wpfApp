@@ -97,6 +97,7 @@ namespace app_wpf
             if (DataGridHabitaciones.SelectedIndex != -1){
                 EditarHabitacion ventanaEditar = new EditarHabitacion(Habitaciones[DataGridHabitaciones.SelectedIndex]);
                 ventanaEditar.Show();
+                fillLisViewHabitaciones();
             }
             //TODO corregir errores
         }
@@ -104,6 +105,7 @@ namespace app_wpf
         {
             CrearHabitacion ventanaCrear = new CrearHabitacion();
             ventanaCrear.Show();
+            fillLisViewHabitaciones();
             //TODO corregir errores
         }
 
@@ -130,6 +132,7 @@ namespace app_wpf
                         MessageBoxImage.Information);
                 }
             }
+            fillLisViewHabitaciones();
         }
     }
 

@@ -197,7 +197,7 @@ namespace app_wpf
                 {
                     using (HttpClient client = new HttpClient())
                     {
-                        string url = $"http://localhost:3036/usuarios/deleteUser/{usuario.Id}";
+                        string url = $"http://localhost:3036/usuarios/deleteUser/";
                         HttpResponseMessage response = await client.DeleteAsync(url);
 
                         if (response.IsSuccessStatusCode)
