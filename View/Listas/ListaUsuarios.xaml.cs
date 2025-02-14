@@ -1,10 +1,14 @@
 ﻿using app_wpf.image;
 using app_wpf.Model;
+using app_wpf.View.Creacion;
+using app_wpf.View.Listas;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -196,6 +200,25 @@ namespace app_wpf
             var newUser = new NuevoUser(null);
             newUser.ShowDialog();
             _ = FillDataGridUsuarios();
+        }
+
+        private void ListaReservas_click(object sender, RoutedEventArgs e)
+        {
+            var listaReservas = new ListaReservas();
+            listaReservas.Show();
+            Close();
+        }
+
+        private void Listausuarios_click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show($"Ya resides en esta ventana","Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+        }
+
+        private void Reservar_click(object sender, RoutedEventArgs e)
+        {
+            var reservar = new Rerservas();
+            reservar.Show();
+            Close();
         }
     }
 }
