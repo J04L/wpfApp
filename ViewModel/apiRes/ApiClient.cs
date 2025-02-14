@@ -45,6 +45,7 @@ public class ApiClient
         {
             var extension = fs.Name.Substring(fs.Name.LastIndexOf('.') + 1);
             streamContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/" + extension);
+            
             form.Add(streamContent, "imagen", Path.GetFileName(rutaImagen));
             // Convertir objeto Habitacion a JSON
             string json = JsonConvert.SerializeObject(habitacion);

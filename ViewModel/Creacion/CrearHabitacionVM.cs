@@ -29,6 +29,7 @@ namespace app_wpf
         private int _piso;
         private double _dimensiones;
         public List<TipoHabitacion> ListaTipoHabitaciones = null;
+        public List<Habitacion> habitaciones;
         
         public double Dimensiones
         {
