@@ -15,6 +15,8 @@ using System.Runtime.InteropServices.JavaScript;
 using System.Threading.Tasks;
 using Accessibility;
 using app_wpf.Model;
+using app_wpf.View.Creacion;
+using app_wpf.View.Listas;
 using Newtonsoft.Json;
 
 
@@ -133,6 +135,24 @@ namespace app_wpf
                 }
             }
             fillLisViewHabitaciones();
+        }
+
+        private void CambiarVentanaUsuarios_OnClick (object sender, RoutedEventArgs e)
+        {
+            new ListaUsuarios().Show();
+            Close();
+        }
+
+        private void CambiarVentanaReservas_OnClick(object sender, RoutedEventArgs e)
+        {
+            new Rerservas().Show();
+            Close();
+        }
+
+        private void CambiarVentaraListaReservas_OnClick(object sender, RoutedEventArgs e)
+        {
+            new ListaReservas().Show();
+            Close();
         }
     }
 
