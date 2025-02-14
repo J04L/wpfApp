@@ -310,45 +310,44 @@
                                 <ColumnDefinition></ColumnDefinition>
                                 <ColumnDefinition></ColumnDefinition>
                             </Grid.ColumnDefinitions>
+                            
                             <Border CornerRadius="66,0,0,0" HorizontalAlignment="Left" Background="{DynamicResource DetallesBrush}" BorderBrush="{DynamicResource DetallesBrush}">
-                                <Button HorizontalAlignment="Left" Width="200" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{DynamicResource TextoClaroBrush}">+</Button>
+                                <WrapPanel>
+                                    <Button Click="EditarHabitacionButton_OnClick" HorizontalAlignment="Left" Width="70" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{DynamicResource TextoClaroBrush}" FontWeight="Bold" FontSize="20">✏️</Button>
+                                    <Button Click="EliminarHabitacionButton_OnClick" HorizontalAlignment="Left" Width="70" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{DynamicResource TextoClaroBrush}" FontWeight="Bold" FontSize="20">🗑️</Button>
+                                    <Button Click="CrearHabitacionButton_OnClick" HorizontalAlignment="Left" FontWeight="Bold" FontSize="20" Width="70" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{DynamicResource TextoClaroBrush}">➕</Button>
+                                </WrapPanel>
                             </Border>
                             <TextBlock Grid.Column="1" FontSize="24" FontWeight="Bold" HorizontalAlignment="Right" Foreground="#FF024959">HABITACIONES</TextBlock>
                         </Grid>
                     </Border>
-                    <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" Style="{DynamicResource DataGridStyle1}" x:Name="DataGridHabitaciones" ItemsSource="{Binding ListaHabitaciones}" AutoGenerateColumns="False"
-                              CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True" >
+                    <Grid>
+                        <DataGrid  RowStyle="{DynamicResource DataGridRowStyle1}"
+                                   CellStyle="{DynamicResource DataGridCellStyle1}" 
+                                   ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" 
+                                   Style="{DynamicResource DataGridStyle1}" 
+                                   x:Name="DataGridHabitaciones" AutoGenerateColumns="false"
+                                   CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True">
 
 
-                        <DataGrid.Columns>
-                            <DataGridTemplateColumn Header="Camas" Width="125">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <ContentControl Content="{Binding Camas}"></ContentControl>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                            <DataGridTextColumn Header="Nº" Binding="{Binding NumeroHabitacion}"/>
-                            <DataGridTextColumn Header="Tipo" Binding="{Binding TipoHabitacion}" Width="120"/>
-                            <DataGridTextColumn Header="Capacidad" Binding="{Binding Capacidad}" Width="80"/>
-                            <DataGridTextColumn Header="Precio" Binding="{Binding Precio}" Width="100"/>
-                            <DataGridTextColumn Header="Tamaño" Binding="{Binding Dimensiones}" Width="110"/>
-                            <DataGridTextColumn Header="Piso" Binding="{Binding Piso}" Width="70"/>
-                            <DataGridTextColumn Header="Disponible" Binding="{Binding Disponible}" Width="80"/>
-                            <!-- Columna de Botones -->
-                            <DataGridTemplateColumn Header="Herramientas" Width="140">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                            <Button Content="✅" Command="{Binding DataContext.AprobarCommand, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}"/>
-                                            <Button Content="❌" Command="{Binding DataContext.RechazarCommand, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}"/>
-                                            <Button Content="🗑️" Command="{Binding DataContext.EliminarCommand, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}"/>
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                        </DataGrid.Columns>
-                    </DataGrid>
+                            <DataGrid.Columns>
+                                <DataGridTemplateColumn Header="Camas" Width="125">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <ContentControl Content="{Binding Camas}"></ContentControl>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTextColumn Header="Nº" Binding="{Binding NumeroHabitacion}"/>
+                                <DataGridTextColumn Header="Tipo" Binding="{Binding TipoHabitacion}" Width="120"/>
+                                <DataGridTextColumn Header="Capacidad" Binding="{Binding Capacidad}" Width="200"/>
+                                <DataGridTextColumn Header="Precio" Binding="{Binding Precio}" Width="100"/>
+                                <DataGridTextColumn Header="Tamaño" Binding="{Binding Dimensiones}" Width="110"/>
+                                <DataGridTextColumn Header="Piso" Binding="{Binding Piso}" Width="70"/>
+                                <DataGridTextColumn Header="Disponible" Binding="{Binding Disponible}" Width="80"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
                 </StackPanel>
             </Border>
         </Grid>

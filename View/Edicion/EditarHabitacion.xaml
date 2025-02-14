@@ -1,9 +1,9 @@
-<Window x:Class="app_wpf.View.Edicion.EditarHabitacion"
+<Window x:Class="app_wpf.EditarHabitacion"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:local="clr-namespace:app_wpf.View.Edicion"
+        xmlns:local="clr-namespace:app_wpf"
         mc:Ignorable="d"
         Title="EditarHabitacion" Height="450" Width="800">
     
@@ -61,7 +61,8 @@
             <!-- Descripción -->
             <StackPanel Grid.Row="1" Margin="0,0,10,0">
                 <TextBlock Text="Descripción:"/>
-                <TextBox x:Name="DescripcionHabitacionCrear" Height="150" Text="{Binding Descripcion, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}">
+                <TextBox x:Name="DescripcionHabitacionCrear" TextWrapping="Wrap"
+                         Height="150" Text="{Binding Descripcion, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}">
                     <TextBox.ToolTip>
                         <Binding Path="(Validation.Errors)[0].ErrorContent" RelativeSource="{RelativeSource Self}"/>
                     </TextBox.ToolTip>
@@ -96,10 +97,11 @@
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Text="Fotos:" />
-                    <Button Grid.Column="1" Content="Seleccionar"/>
+                    <TextBlock Text="Foto:" />
                 </Grid>
-                <Image Height="150"></Image>
+                <WrapPanel>
+                    <Image Height="150" Source="{Binding Foto}"></Image>
+                </WrapPanel>
             </StackPanel>
 
             <!-- Camas -->
@@ -154,6 +156,6 @@
             </WrapPanel>
         </Grid>
         <!-- Botón Guardar -->
-        <Button Grid.Row="10" Content="Guardar" Margin="30,10,30,0"/>
+        <Button Click="GuardarHabitacionButton_OnCLick" Grid.Row="10" Content="Guardar" Margin="30,10,30,0"/>
     </StackPanel>
 </Window>

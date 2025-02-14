@@ -99,9 +99,9 @@
                         <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <TextBlock Text="Fotos:" />
-                    <Button Grid.Column="1" Content="Seleccionar"/>
+                    <Button Click="SeleccionarImagenButton_OnClick" Grid.Column="1" Content="Seleccionar"/>
                 </Grid>
-                <Image Height="150"></Image>
+                <Image Source="{Binding Foto}" Height="150"></Image>
             </StackPanel>
 
             <!-- Camas -->
@@ -156,6 +156,6 @@
             </WrapPanel>
         </Grid>
         <!-- Botón Guardar -->
-        <Button Grid.Row="10" Content="Guardar" Margin="30,10,30,0"/>
+        <Button Click="GuardarHabitacionButton_OnCLick" Grid.Row="10" Content="Guardar" Margin="30,10,30,0"/>
     </StackPanel>
 </Window>
