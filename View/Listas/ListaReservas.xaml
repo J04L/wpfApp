@@ -5,8 +5,132 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:app_wpf.View.Listas"
         mc:Ignorable="d"
-        Title="ListaReservas" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+         Background="#143444"
+
+        Title="ListaReservas" Height="675" Width="1200">
+
+    <Border Padding="10">
+        <Grid>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition ></ColumnDefinition>
+                <ColumnDefinition Width="3*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.1*"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.ColumnSpan="2" Margin="0,0,0,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+
+                </Grid.ColumnDefinitions>
+                <WrapPanel>
+                    <Image Source="/icon.jpg"></Image>
+                    <TextBlock FontSize="24" FontWeight="Bold" VerticalAlignment="Center" Foreground="#84b026" Margin="15,0,0,0">HOTEL PERE MARÍA</TextBlock>
+                </WrapPanel>
+                <Button Foreground="white" Grid.Column="1" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="18" FontWeight="Bold">Buscador</Button>
+                <Button Foreground="white" Grid.Column="2" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="18" FontWeight="Bold">Usuarios</Button>
+                <Button Foreground="white" Grid.Column="3" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="18" FontWeight="Bold">Reservas</Button>
+                <Button Foreground="white" Grid.Column="4" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="18" FontWeight="Bold">Habitaciones</Button>
+            </Grid>
+            <StackPanel Grid.Row="1">
+                <Border Grid.Row="1" Background="#161f30" CornerRadius="50,0,20,0" Grid.Column="0" Padding="20" BorderThickness="0,4,0,4"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="20,0,20,0">
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Border Grid.Row="0">
+                            <TextBlock FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Foreground="#84b026">BUSCADOR</TextBlock>
+                        </Border>
+                        <Border BorderThickness="1,0,0,0"  Padding="4,0,0,4" CornerRadius="10,0,0,10" Grid.Row="1">
+                            <StackPanel Margin="0,0,0,3">
+                                <TextBlock Foreground="White" FontSize="16" FontWeight="Bold">Habitación</TextBlock>
+                                <TextBox  x:Name="HabitacionTextBox"></TextBox>
+
+                            </StackPanel>
+                        </Border>
+                        <Border BorderThickness="1,0,0,0"  Padding="4,0,0,4" CornerRadius="10,0,0,10" Grid.Row="2">
+                            <StackPanel>
+                                <TextBlock Foreground="White" FontSize="16" FontWeight="Bold">Fechas</TextBlock>
+                                <StackPanel Margin="0,0,0,7">
+                                    <TextBlock Foreground="White" Margin="0,0,5,0" FontSize="16">Inicio</TextBlock>
+                                    <DatePicker x:Name="InicioDatePicker" Margin="0,0,20,0" FontSize="16">
+
+                                    </DatePicker>
+                                    <TextBlock Foreground="White" Margin="0,0,5,0" FontSize="16">Final</TextBlock>
+                                    <DatePicker x:Name="FinalDatePicker" FontSize="16" ></DatePicker>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                        <Border BorderThickness="1,0,0,0"  Padding="4,0,0,4" CornerRadius="10,0,0,10" Grid.Row="3">
+                            <StackPanel>
+                                <TextBlock Foreground="White" FontSize="16" FontWeight="Bold">Días Totales</TextBlock>
+                                <TextBox x:Name="DiasTotalesTextBox" Width="30" HorizontalAlignment="Left"></TextBox>
+                            </StackPanel>
+                        </Border>
+
+                        <Border BorderThickness="1,0,0,0"  Padding="4,0,0,4" CornerRadius="10,0,0,10" Grid.Row="4">
+                            <StackPanel>
+                                <TextBlock Foreground="White" FontSize="16" FontWeight="Bold">Cantidad huéspedes</TextBlock>
+                                <TextBox x:Name="HuespedesTextBox" Width="30" HorizontalAlignment="Left"></TextBox>
+                            </StackPanel>
+                        </Border>
+                        <Border BorderThickness="1,0,0,0"  Padding="4,0,0,4" CornerRadius="10,0,0,10" Grid.Row="5">
+                            <StackPanel>
+                                <TextBlock Foreground="White" FontSize="16" FontWeight="Bold">Precio/Dia</TextBlock>
+                                <WrapPanel Margin="0,0,0,7">
+                                    <TextBlock Foreground="White" Margin="0,0,5,0" FontSize="16">mín</TextBlock>
+                                    <TextBox x:Name="PrecioDiaMin" Margin="0,0,20,0" FontSize="16" Width="50"></TextBox>
+                                    <TextBlock Foreground="White" Margin="0,0,5,0" FontSize="16">máx</TextBlock>
+                                    <TextBox x:Name="PrecioDiaMax" FontSize="16" Width="50"></TextBox>
+                                </WrapPanel>
+                            </StackPanel>
+                        </Border>
+                        <Border BorderThickness="1,0,0,0"  Padding="4,0,0,4" CornerRadius="10,0,0,10" Grid.Row="6">
+                            <StackPanel>
+                                <TextBlock Foreground="White" FontSize="16" FontWeight="Bold">Precio Total</TextBlock>
+                                <WrapPanel Margin="0,0,0,7">
+                                    <TextBlock Foreground="White" Margin="0,0,5,0" FontSize="16">mín</TextBlock>
+                                    <TextBox x:Name="PrecioTotalMin" Margin="0,0,20,0" FontSize="16" Width="50"></TextBox>
+                                    <TextBlock Foreground="White" Margin="0,0,5,0" FontSize="16">máx</TextBlock>
+                                    <TextBox x:Name="PrecioTotalMax" FontSize="16" Width="50"></TextBox>
+                                </WrapPanel>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+
+                </Border>
+                <Border Padding="40,10,40,10" CornerRadius="10,0,10,0" Margin="0,20,0,0" Background="#217373" BorderThickness="0,0,2,2" BorderBrush="#3d3d3d" HorizontalAlignment="Center">
+                    <Button x:Name="BuscarReservasButton" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" FontSize="16" FontWeight="Bold">Buscar</Button>
+                </Border>
+            </StackPanel>
+            <Border  Grid.Row="1" Grid.Column="1" Background="#161f30" CornerRadius="50,0,20,0"  Padding="20" BorderThickness="0,4,0,4" >
+                <StackPanel>
+                    <Border  BorderThickness="0,0,2,2" Margin="0,0,0,10" CornerRadius="10,30,10,10" Padding="0,0,20,0">
+                        <TextBlock FontSize="24" FontWeight="Bold" HorizontalAlignment="Right" Foreground="#84b026">RESERVAS</TextBlock>
+                    </Border>
+                    <Border >
+
+                    </Border>
+                    <Border BorderThickness="0,0,0,1" CornerRadius="0,0,10,10">
+                        <DataGrid x:Name="DataGridReservas" CanUserDeleteRows="False" IsReadOnly="True" CanUserAddRows="False" ItemsSource="{Binding ListaReservas}" AutoGenerateColumns="True" HeadersVisibility="Column"  Background="Blue" Foreground="black" SelectionChanged="DataGridReservas_SelectionChanged">
+
+                        </DataGrid>
+                    </Border>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Border>
 </Window>

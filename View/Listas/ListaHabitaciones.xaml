@@ -222,11 +222,10 @@
                         BorderThickness="5,0,0,2" HorizontalAlignment="Right"
                         BorderBrush="{StaticResource BordesRecuadrosBrush}">
                     <WrapPanel VerticalAlignment="Center" Height="50" HorizontalAlignment="Right">
-                        <Button Grid.Column="1" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="18" FontWeight="Bold" Foreground="{StaticResource TextoClaroBrush}" Height="50" Margin="25,0,0,0">Reservar</Button>
-                        <Button Grid.Column="2" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="18" FontWeight="Bold" Foreground="{StaticResource TextoClaroBrush}" Margin="25,0,25,0">Usuarios</Button>
-                        <Button Grid.Column="3" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="18" FontWeight="Bold" Foreground="{StaticResource TextoClaroBrush}" Margin="0,0,25,0">Reservas</Button>
-                        <Button Grid.Column="4" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="18" FontWeight="Bold" Foreground="{StaticResource TextoClaroBrush}" Margin="0,0,25,0">Habitaciones</Button>
-
+                        <Button Click="CambiarVentanaReservas_OnClick" Grid.Column="1" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="18" FontWeight="Bold" Foreground="{StaticResource TextoClaroBrush}" Height="50" Margin="25,0,0,0">Reservar</Button>
+                        <Button Click="CambiarVentanaUsuarios_OnClick" Grid.Column="2" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="18" FontWeight="Bold" Foreground="{StaticResource TextoClaroBrush}" Margin="25,0,25,0">Usuarios</Button>
+                        <Button Click="CambiarVentaraListaReservas_OnClick" Grid.Column="3" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="18" FontWeight="Bold" Foreground="{StaticResource TextoClaroBrush}" Margin="0,0,25,0">Reservas</Button>
+                        <Button Grid.Column="4" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="18" FontWeight="Bold" Foreground="{StaticResource DetallesBrush}" Margin="0,0,25,0">Habitaciones</Button>
                     </WrapPanel>
                 </Border>
             </Grid>
@@ -242,7 +241,7 @@
                         <Border BorderThickness="1,0,0,0" BorderBrush="{StaticResource TextoClaroBrush}" Padding="4,0,0,4" CornerRadius="0,0,0,10">
                             <StackPanel Margin="0,0,0,3">
                                 <TextBlock FontSize="16" FontWeight="Bold" Foreground="{StaticResource TextoClaroBrush}">Tipo</TextBlock>
-                                <ComboBox x:Name="tipoHabitacionesFiltroCombobox" FontSize="16"/>
+                                <ComboBox Width="200"  HorizontalAlignment="Right" Style="{StaticResource CustomComboBoxStyle}" x:Name="tipoHabitacionesFiltroCombobox" FontSize="16"/>
                             </StackPanel>
                         </Border>
                         <Border BorderThickness="1,0,0,0" BorderBrush="{StaticResource TextoClaroBrush}" Padding="4,0,0,4" CornerRadius="0,0,0,10">
@@ -318,7 +317,7 @@
                                     <Button Click="CrearHabitacionButton_OnClick" HorizontalAlignment="Left" FontWeight="Bold" FontSize="20" Width="70" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{DynamicResource TextoClaroBrush}">➕</Button>
                                 </WrapPanel>
                             </Border>
-                            <TextBlock Grid.Column="1" FontSize="24" FontWeight="Bold" HorizontalAlignment="Right" Foreground="#FF024959">HABITACIONES</TextBlock>
+                            <TextBlock Grid.Column="1" FontSize="24" FontWeight="Bold" HorizontalAlignment="Right" Foreground="{DynamicResource TextoOscuroBrush}">HABITACIONES</TextBlock>
                         </Grid>
                     </Border>
                     <Grid>
@@ -327,8 +326,8 @@
                                    ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" 
                                    Style="{DynamicResource DataGridStyle1}" 
                                    x:Name="DataGridHabitaciones" AutoGenerateColumns="false"
-                                   CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True" ScrollViewer.VerticalScrollBarVisibility="Visible"
-                                   Height="500">
+                                   CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True"
+                                   Height="540" HorizontalScrollBarVisibility="Hidden">
 
 
                             <DataGrid.Columns>

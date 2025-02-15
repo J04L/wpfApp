@@ -149,4 +149,20 @@ public class ApiClient
             return null;
         }
     }
+    public static async Task<List<Habitacion>> GetHabitaciones()
+    {
+        using (HttpClient client = new HttpClient())
+        {
+            string url = "http://localhost:3036/api/habitacion";
+            HttpResponseMessage response = await client.GetAsync(url);
+            if (response.IsSuccessStatusCode)
+            {
+                string json = await response.Content.ReadAsStringAsync();
+                List<Habitacion> habitacion = JsonConvert.DeserializeObject<List<Habitacion>>(json);
+                return habitacion;
+            }
+
+            return null;
+        }
+    }
 }

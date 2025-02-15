@@ -15,6 +15,8 @@ using System.Runtime.InteropServices.JavaScript;
 using System.Threading.Tasks;
 using Accessibility;
 using app_wpf.Model;
+using app_wpf.View.Creacion;
+using app_wpf.View.Listas;
 using Newtonsoft.Json;
 
 
@@ -59,7 +61,7 @@ namespace app_wpf
 
         }
 
-        public async void fillLisViewHabitaciones()
+        public async  void fillLisViewHabitaciones()
         {
             Habitaciones = await ApiClient.GetHabitacionesFiltradasAsync(
                 (tipoHabitacionesFiltroCombobox.SelectedItem.ToString() == "Cualquiera"
@@ -97,6 +99,16 @@ namespace app_wpf
             if (DataGridHabitaciones.SelectedIndex != -1){
                 EditarHabitacion ventanaEditar = new EditarHabitacion(Habitaciones[DataGridHabitaciones.SelectedIndex]);
                 ventanaEditar.Show();
+                fillLisViewHabitaciones();
+            }
+            else
+            {
+                MessageBox.Show(
+                    $"Selecciona una habitacion primero",
+                    "Error",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error
+                );
             }
             //TODO corregir errores
         }
@@ -130,6 +142,35 @@ namespace app_wpf
                         MessageBoxImage.Information);
                 }
             }
+            else
+            {
+               
+                MessageBox.Show(
+                    $"Selecciona una habitacion primero",
+                    "Error",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error
+                );
+            }
+            fillLisViewHabitaciones();
+        }
+
+        private void CambiarVentanaUsuarios_OnClick (object sender, RoutedEventArgs e)
+        {
+            new ListaUsuarios().Show();
+            Close();
+        }
+
+        private void CambiarVentanaReservas_OnClick(object sender, RoutedEventArgs e)
+        {
+            new Reservas().Show();
+            Close();
+        }
+
+        private void CambiarVentaraListaReservas_OnClick(object sender, RoutedEventArgs e)
+        {
+            new ListaReservas().Show();
+            Close();
         }
     }
 

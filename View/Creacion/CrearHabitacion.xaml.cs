@@ -8,6 +8,7 @@ namespace app_wpf
     public partial class CrearHabitacion : Window
     {
         private CrearHabitacionVM _viewModel = new CrearHabitacionVM();
+
         public CrearHabitacion()
         {
             InitializeComponent();
@@ -15,14 +16,18 @@ namespace app_wpf
             setTipoHabitaciones();
 
         }
-        public async void setTipoHabitaciones()
+
+        public async Task setTipoHabitaciones()
         {
             var lista = await ApiClient.GetTipoHabitaciones();
+            _viewModel.habitaciones = await ApiClient.GetHabitaciones();
+            var hab = _viewModel.habitaciones;
+            _viewModel.ListaTipoHabitaciones = lista;
             TipoHabitacionesComboBox.ItemsSource = lista.Select(tipo => tipo.NombreTipoHabitacion);
             TipoHabitacionesComboBox.SelectedIndex = 0;
-            
+
             // Establecer valores iniciales
-            _viewModel.ListaTipoHabitaciones = lista;
+            Console.WriteLine(_viewModel.habitaciones.Select(habitacion => habitacion.NumeroHabitacion).ToString());
             _viewModel.TipoHabitacion = lista[0].NombreTipoHabitacion;
             _viewModel.Numero = 6;
             _viewModel.CapacidadAdultos = 2;
@@ -41,7 +46,7 @@ namespace app_wpf
 
         private void ButtonRestarCamaDoble_OnClick(object sender, RoutedEventArgs e)
         {
-            if(_viewModel.CamasDobles > 0) _viewModel.CamasDobles--;
+            if (_viewModel.CamasDobles > 0) _viewModel.CamasDobles--;
         }
 
         private void ButtonSumarCamaIndividual_OnClick(object sender, RoutedEventArgs e)
@@ -53,6 +58,7 @@ namespace app_wpf
         {
             if (_viewModel.CamasIndividuales > 0) _viewModel.CamasIndividuales--;
         }
+
         private void SeleccionarImagenButton_OnClick(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog
@@ -71,16 +77,42 @@ namespace app_wpf
             }
         }
 
-        private async void GuardarHabitacionButton_OnCLick(object sender, RoutedEventArgs e)
+        private async void GuardarHabitacionButton_OnClick(object sender, RoutedEventArgs e)
         {
-            await ApiClient.PostHabitacion(_viewModel.Foto, _viewModel.GetHabitacion());
-            MessageBox.Show(
-                $"Habitacion creada",
-                "Success",
-                MessageBoxButton.OK,
-                MessageBoxImage.Information
-            );
-            Close();
+            try
+            {
+                if (!_viewModel.HasErrors)
+                {
+                    await ApiClient.PostHabitacion(_viewModel.Foto, _viewModel.GetHabitacion());
+                    MessageBox.Show(
+                        "Habitación creada",
+                        "Éxito",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Information
+                    );
+                    _viewModel.habitaciones = await ApiClient.GetHabitaciones();
+                    Close(); // Se ejecuta solo cuando la tarea ha terminado
+                }
+                else
+                {
+                    MessageBox.Show(
+                        $"Corrige los errores antes de guardar",
+                        "Error",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Error
+                    );
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    $"Error al guardar la habitación: {ex.Message}",
+                    "Error",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error
+                );
+            }
         }
+
     }
 }

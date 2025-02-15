@@ -28,7 +28,8 @@ namespace app_wpf
         private double _precio;
         private int _piso;
         private double _dimensiones;
-        public List<TipoHabitacion> ListaTipoHabitaciones;
+        public List<TipoHabitacion> ListaTipoHabitaciones = null;
+        public List<Habitacion> habitaciones;
         
         public double Dimensiones
         {
@@ -176,7 +177,8 @@ namespace app_wpf
                 switch (name)
                 {
                     case "Numero":
-                        if (MainWindow.Habitaciones.Select(habitacion => habitacion.NumeroHabitacion).Contains(Numero))
+                        Console.WriteLine(habitaciones);
+                        if (habitaciones.Select(habitacion => habitacion.NumeroHabitacion).Contains(Numero))
                         {
                             return "El numero de habitacion ya existe";
                         }
@@ -186,7 +188,7 @@ namespace app_wpf
                         }
                         break;
                     case "Precio":
-                        if (ListaTipoHabitaciones[
+                        if (ListaTipoHabitaciones != null && ListaTipoHabitaciones[
                                 ListaTipoHabitaciones.FindIndex(tipo => tipo.NombreTipoHabitacion == _tipoHabitacion)].PrecioBase > Precio)
                         {
                             return $"El precio base de esta habitación es de {ListaTipoHabitaciones[
@@ -254,7 +256,7 @@ namespace app_wpf
                 new Capacidad(_capacidadAdultos, _capacidadNinos),
                 _descripcion,
                 _precio,
-                new List<string>(),
+                new List<string>() {_foto},
                 new Camas(_camasDobles, _camasIndividuales),
                 _dimensiones,
                 true,
