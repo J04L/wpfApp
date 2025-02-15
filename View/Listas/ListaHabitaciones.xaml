@@ -327,7 +327,8 @@
                                    ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" 
                                    Style="{DynamicResource DataGridStyle1}" 
                                    x:Name="DataGridHabitaciones" AutoGenerateColumns="false"
-                                   CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True">
+                                   CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True" ScrollViewer.VerticalScrollBarVisibility="Visible"
+                                   Height="500">
 
 
                             <DataGrid.Columns>
