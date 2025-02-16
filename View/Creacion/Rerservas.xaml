@@ -133,9 +133,11 @@
                                 <StackPanel>
                                     <Image Source="{Binding Fotos[0]}" Height="150" Width="200" HorizontalAlignment="Center"/>
                                     <Label FontFamily="Montserrat" FontSize="20" HorizontalAlignment="Center" Foreground="White" Content="{Binding TipoHabitacion.NombreTipoHabitacion}"/>
+                                    <Label FontFamily="Montserrat" FontSize="20" HorizontalAlignment="Center" Foreground="White" Content="{Binding NumeroHabitacion}"/>
+
                                     <TextBlock Foreground="#84b026" HorizontalAlignment="Center" FontSize="18" Text="{Binding Precio, StringFormat={}{0}€/noche}"/>
                                     <Border CornerRadius="20" Background="#217373" HorizontalAlignment="Center">
-                                        <Button Background="Transparent" BorderBrush="Transparent" Foreground="White" Click="ReservarHabitacion_Click">
+                                        <Button Background="Transparent" BorderBrush="Transparent" Foreground="White" Click="Reservar_Click" Command="{Binding ReservarCommand}" CommandParameter="{Binding}">
                                             <Label FontFamily="Montserrat" FontSize="18" Padding="10,5,10,5" Content="Reservar"/>
                                         </Button>
                                     </Border>

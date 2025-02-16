@@ -17,6 +17,7 @@ using System.Windows.Shapes;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Net.Http.Json;
+using app_wpf.View.Edicion;
 
 
 namespace app_wpf.View.Listas
@@ -24,7 +25,7 @@ namespace app_wpf.View.Listas
     public partial class ListaReservas : Window
     {
         private const string EndpointReservas = "http://localhost:3036/api/reservas/reservas";
-        public ObservableCollection<ReservasModel> ListaDeReservas { get; set; } = new();
+        public List<ReservasModel> ListaDeReservas { get; set; } = new();
 
         public ListaReservas()
         {
@@ -41,7 +42,6 @@ namespace app_wpf.View.Listas
                 {
                     n_habitacion = HabitacionTextBox.Text,
                     f_Inicio = InicioDatePicker.SelectedDate?.ToString("yyyy-MM-ddTHH:mm:ss.fffZ"),
-                    //f_Inicio = "01-02-2024",
                     f_Final = FinalDatePicker.SelectedDate?.ToString("yyyy-MM-ddTHH:mm:ss.fffZ"),
                     numeroHuespedes = int.TryParse(HuespedesTextBox.Text, out int hues) ? hues : (int?)null,
                     precioMin = decimal.TryParse(PrecioTotalMin.Text, out decimal minTotal) ? minTotal : (decimal?)null,
@@ -63,11 +63,18 @@ namespace app_wpf.View.Listas
                         {
                             Application.Current.Dispatcher.Invoke(() =>
                             {
+                                // Limpiar la lista de reservas
                                 ListaDeReservas.Clear();
+
+                                // Añadir las reservas recibidas
                                 foreach (var reserva in reservas)
                                 {
                                     ListaDeReservas.Add(reserva);
                                 }
+
+                                // Reasignar el ItemsSource para reflejar los cambios
+                                DataGridReservas.ItemsSource = null;
+                                DataGridReservas.ItemsSource = ListaDeReservas;
                             });
                         }
                         else
@@ -94,6 +101,85 @@ namespace app_wpf.View.Listas
         private void DataGridReservas_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
 
+        }
+
+        private async void EliminarReservaButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            // Verificar si hay una reserva seleccionada en el DataGrid
+            var reservaSeleccionada = DataGridReservas.SelectedItem as ReservasModel;
+            if (reservaSeleccionada != null)
+            {
+                // Mostrar mensaje de confirmación
+                var resultado = MessageBox.Show("¿Estás seguro de que deseas eliminar esta reserva?",
+                                                 "Confirmación",
+                                                 MessageBoxButton.YesNo,
+                                                 MessageBoxImage.Question);
+
+                if (resultado == MessageBoxResult.Yes)
+                {
+                    try
+                    {
+                        using HttpClient client = new HttpClient();
+                        client.DefaultRequestHeaders.Add("Accept", "application/json"); // Para asegurar que la respuesta sea en formato JSON
+
+                        // Crear el objeto con el _id de la reserva a eliminar
+                        var datos = new { _id = reservaSeleccionada._id };
+
+                        // Convertir el objeto a JSON
+                        var jsonContent = new StringContent(JsonSerializer.Serialize(datos), Encoding.UTF8, "application/json");
+
+                        // Enviar la solicitud DELETE con el _id en el cuerpo
+                        HttpResponseMessage response = await client.SendAsync(new HttpRequestMessage
+                        {
+                            Method = HttpMethod.Delete,
+                            RequestUri = new Uri("http://localhost:3036/api/reservas/delete"),
+                            Content = jsonContent
+                        });
+
+                        if (response.IsSuccessStatusCode)
+                        {
+                            // Eliminar la reserva de la lista
+                            ListaDeReservas.Remove(reservaSeleccionada);
+
+                            // Actualizar el DataGrid
+                            DataGridReservas.ItemsSource = null;
+                            DataGridReservas.ItemsSource = ListaDeReservas;
+
+                            MessageBox.Show("Reserva eliminada exitosamente.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                        }
+
+                        else
+                        {
+                            string mensajeError = await response.Content.ReadAsStringAsync();
+                            MessageBox.Show($"Error: {mensajeError}", "Error al eliminar", MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error: {ex.Message}\nStackTrace: {ex.StackTrace}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, selecciona una reserva para eliminar.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+
+
+        private void EditarReservaButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            var reservaSeleccionada = DataGridReservas.SelectedItem as ReservasModel;
+            if (reservaSeleccionada != null)
+            {
+                // Crear la ventana de edición y pasar la reserva seleccionada
+                var ventanaEdicion = new EditarReserva(reservaSeleccionada);
+                ventanaEdicion.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Por favor, selecciona una reserva para editar.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
     }
 }
