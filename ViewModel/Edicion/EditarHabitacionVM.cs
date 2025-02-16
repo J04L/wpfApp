@@ -27,8 +27,10 @@ namespace app_wpf
         private string _tipoHabitacion;
         private double _precio;
         private int _piso;
+        public int NumeroOriginal;
         private double _dimensiones;
         public List<TipoHabitacion> ListaTipoHabitaciones;
+        public List<Habitacion> habitaciones;
         
         public double Dimensiones
         {
@@ -176,11 +178,11 @@ namespace app_wpf
                 switch (name)
                 {
                     case "Numero":
-                        if (Numero > 500)
+                        if (Numero != NumeroOriginal && habitaciones.Select(habitacion => habitacion.NumeroHabitacion).Contains(Numero))
                         {
-                            return "El numero de habitación máximo es de 500";
+                            return "El numero de habitación ya existe";
                         }
-                        else if (Numero < 0)
+                        if (Numero < 0)
                         {
                             return "El numero no puede ser menor que 0";
                         }

@@ -60,8 +60,22 @@ namespace app_wpf
                 {
                     try
                     {
-                        string url = $"http://localhost:3036/usuarios/deleteUserById/{usuario.Id}";  // Usamos el ID para eliminar
-                        HttpResponseMessage response = await _httpClient.DeleteAsync(url);
+                        string url = "http://localhost:3036/usuarios/delete";  // Sin ID en la URL, se enviará el email en el body.
+
+                        // Creamos el payload con el email del usuario
+                        var payload = new { email = usuario.Email };
+                        string jsonPayload = JsonConvert.SerializeObject(payload);
+                        var content = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
+
+                        // Creamos el request para un DELETE con body
+                        var request = new HttpRequestMessage
+                        {
+                            Method = HttpMethod.Delete,
+                            RequestUri = new Uri(url),
+                            Content = content
+                        };
+
+                        HttpResponseMessage response = await _httpClient.SendAsync(request);
 
                         if (response.IsSuccessStatusCode)
                         {
@@ -84,6 +98,7 @@ namespace app_wpf
                 MessageBox.Show("Seleccione un usuario para eliminar.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
+
 
         public async Task FillDataGridUsuarios(bool applyFilter = false, Dictionary<string, object> filtro = null)
         {
