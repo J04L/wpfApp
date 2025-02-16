@@ -118,11 +118,21 @@
             </StackPanel>
             <Border  Grid.Row="1" Grid.Column="1" Background="#161f30" CornerRadius="50,0,20,0"  Padding="20" BorderThickness="0,4,0,4" >
                 <StackPanel>
-                    <Border  BorderThickness="0,0,2,2" Margin="0,0,0,10" CornerRadius="10,30,10,10" Padding="0,0,20,0">
-                        <TextBlock FontSize="24" FontWeight="Bold" HorizontalAlignment="Right" Foreground="#84b026">RESERVAS</TextBlock>
-                    </Border>
-                    <Border >
+                    <Border BorderThickness="0,2,2,2" Margin="0,0,10,10" CornerRadius="70,30,10,0" Padding="0,0,20,0" BorderBrush="#FF3CA6A6">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
 
+                            <Border CornerRadius="66,0,0,0" HorizontalAlignment="Left" Background="#143444" BorderBrush="{DynamicResource DetallesBrush}">
+                                <WrapPanel>
+                                    <Button Click="EditarReservaButton_OnClick" HorizontalAlignment="Left" Width="70" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#84b026" FontWeight="Bold" FontSize="20">✏️</Button>
+                                    <Button Click="EliminarReservaButton_OnClick" HorizontalAlignment="Left" Width="70" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#84b026" FontWeight="Bold" FontSize="20">🗑️</Button>
+                                </WrapPanel>
+                            </Border>
+                            <TextBlock Grid.Column="1" FontSize="24" FontWeight="Bold" HorizontalAlignment="Right" Foreground="#84b026" Height="32" VerticalAlignment="Top" >RESERVAS</TextBlock>
+                        </Grid>
                     </Border>
                     <Border BorderThickness="0,0,0,1" CornerRadius="0,0,10,10">
                         <DataGrid x:Name="DataGridReservas" CanUserDeleteRows="False" IsReadOnly="True" CanUserAddRows="False" ItemsSource="{Binding ListaReservas}" AutoGenerateColumns="True" HeadersVisibility="Column"  Background="Blue" Foreground="black" SelectionChanged="DataGridReservas_SelectionChanged">

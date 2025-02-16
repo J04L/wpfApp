@@ -77,7 +77,7 @@ namespace app_wpf.View.Creacion
                     //var habitaciones = JsonSerializer.Deserialize<List<Habitacion>>(responseBody, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
                     List<Habitacion> habitaciones = JsonConvert.DeserializeObject<List<Habitacion>>(responseBody);
 
-                    const string BASE_URL = "http://localhost:3036/img/";
+                    const string BASE_URL = "http://localhost:3036/";
 
                     foreach (var habitacion in habitaciones)
                     {
@@ -102,9 +102,43 @@ namespace app_wpf.View.Creacion
             }
         }
 
-        private void ReservarHabitacion_Click(object sender, RoutedEventArgs e)
+        private void Reservar_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Habitación reservada.");
+            if (sender is Button button && button.CommandParameter is Habitacion habitacion)
+            {
+                // Obtener solo las fechas seleccionadas
+                DateTime fechaEntrada = FechaEntrada.SelectedDate ?? DateTime.Now;
+                DateTime fechaSalida = FechaSalida.SelectedDate ?? DateTime.Now.AddDays(1);
+
+                // Obtener solo el número de huéspedes del ComboBox
+                int numHuespedes = 1; // Valor por defecto
+                if (CapacidadComboBox.SelectedItem is ComboBoxItem selectedItem)
+                {
+                    if (int.TryParse(selectedItem.Content.ToString(), out int capacidad))
+                    {
+                        numHuespedes = capacidad;
+                    }
+                }
+
+                // Calcular el precio total (Precio * Días de estancia)
+                int diasTotales = (int)(fechaSalida - fechaEntrada).TotalDays;
+                if (diasTotales <= 0) diasTotales = 1; // Asegurar al menos 1 día de estancia
+                double precioTotal = diasTotales * habitacion.Precio;
+
+                // Obtener el tipo de habitación y la primera foto
+                string tipoHabitacion = habitacion.TipoHabitacion.NombreTipoHabitacion;
+                int numeroHabitacion = habitacion.NumeroHabitacion; // Número de habitación
+                string fotoHabitacion = habitacion.Fotos?.FirstOrDefault(); // Obtener la primera foto
+
+                // Pasar los datos a la ventana CrearReserva (sin indicadores)
+                CrearReserva ventanaReserva = new CrearReserva(habitacion, fechaEntrada, fechaSalida, numHuespedes, precioTotal, tipoHabitacion, fotoHabitacion, numeroHabitacion);
+                ventanaReserva.Owner = Application.Current.MainWindow;
+                ventanaReserva.ShowDialog();
+            }
         }
+
+
+
+
     }
 }

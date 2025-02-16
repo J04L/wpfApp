@@ -1,11 +1,11 @@
-﻿<Window x:Class="app_wpf.View.Creacion.CrearReserva"
+﻿<Window x:Class="app_wpf.View.Edicion.EditarReserva"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:app_wpf.View.Creacion"
+        xmlns:local="clr-namespace:app_wpf.View.Edicion"
         mc:Ignorable="d"
-                Title="MainWindow" Height="450" Width="800">
+        Title="EditarReserva" Height="450" Width="800">
     <Grid>
         <Border BorderBrush="#3d3d3d" BorderThickness="5" Background="#143444" HorizontalAlignment="Center" VerticalAlignment="Center" Width="700" Height="350" CornerRadius="15">
             <Grid>
@@ -20,16 +20,16 @@
                 </Grid.RowDefinitions>
                 <!--FILA 0-->
                 <Label Foreground="#84b026" FontWeight="Bold" FontSize="20" VerticalAlignment="Center" 
-                   HorizontalAlignment="Center">CREAR RESERVA</Label>
+                   HorizontalAlignment="Center">EDITAR RESERVA</Label>
 
                 <!--GRID 1 FILA 1 -->
                 <StackPanel Grid.Row="1">
-                    <Image x:Name="FotoHabitacionImage"   Margin="10"></Image>
+                    <Image x:Name="FotoHabitacionImage" Margin="10"></Image>
                     <Label Foreground="White" HorizontalAlignment="Center">Habitacion</Label>
                 </StackPanel>
 
                 <!--GRID 2-->
-                <Grid  Margin="10" Grid.Column="1" Grid.Row="1">
+                <Grid Margin="10" Grid.Column="1" Grid.Row="1">
                     <Grid.RowDefinitions>
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
@@ -39,70 +39,70 @@
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition Width="2*"></ColumnDefinition>
-
                     </Grid.ColumnDefinitions>
+
                     <!--GRID 2 FILA 1-->
                     <StackPanel>
                         <Label Foreground="White">Fecha de entrada</Label>
-                        <Label x:Name="FechaEntradaLabel" Foreground="White">dd/mm/yy</Label>
+                        <DatePicker x:Name="FechaEntradaDatePicker" SelectedDate="{Binding f_Inicio}" />
                     </StackPanel>
                     <StackPanel Grid.Column="1">
                         <Label Foreground="White">Fecha salida</Label>
-                        <Label x:Name="FechaSalidaLabel" Foreground="White">dd/mm/yy</Label>
+                        <DatePicker x:Name="FechaSalidaDatePicker" SelectedDate="{Binding f_Final}" />
                     </StackPanel>
                     <StackPanel Grid.Column="2">
                         <Label Foreground="White">Huespedes</Label>
-                        <Label x:Name="HuespedesLabel" Foreground="White">nº</Label>
+                        <TextBox  Margin="5" x:Name="HuespedesTextBox"  Text="{Binding numeroHuespedes}"  />
                     </StackPanel>
 
                     <!--GRID 2 FILA 2-->
                     <StackPanel Grid.Row="1" Grid.Column="0">
                         <Label Foreground="White">Precio</Label>
-                        <Label x:Name="PrecioTotalLabel" Foreground="#84b026" FontSize="20">NA€</Label>
+                        <TextBox  Margin="5" x:Name="PrecioTotalLabel"  Text="{Binding precio_total}" />
                     </StackPanel>
 
                     <!--GRID 2 FILA 2-->
                     <StackPanel Grid.Row="1" Grid.Column="1">
                         <Label Foreground="White">Nº habitacion</Label>
-                        <Label x:Name="NumeroHabitacionLabel" Foreground="#84b026" FontSize="20">NA€</Label>
+                        <TextBox  Margin="5" x:Name="NumeroHabitacionLabel"  Text="{Binding n_habitacion}"  />
                     </StackPanel>
+
                     <!--GRID 2 FILA 2-->
                     <StackPanel Grid.Row="1" Grid.Column="2">
                         <Label Foreground="White">Tipo habitacion</Label>
-                        <Label x:Name="TipoHabitacionLabel" Foreground="#84b026" FontSize="20">NA€</Label>
+                        <TextBox   Margin="5" x:Name="TipoHabitacionLabel" Text="{Binding tipo_habitacion}" />
                     </StackPanel>
 
                     <!--GRID 2 FILA 3-->
                     <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3">
-
                         <Label Foreground="White">Cliente</Label>
                         <WrapPanel>
                             <StackPanel Width="80">
                                 <TextBlock Foreground="White">Nombre</TextBlock>
-                                <TextBox x:Name="NombreTextBox"></TextBox>
+                                <TextBox  x:Name="NombreTextBox" Text="{Binding huespedNombre}" />
                             </StackPanel>
                             <StackPanel Margin="5,0" Width="100">
                                 <TextBlock Foreground="White">Apellidos</TextBlock>
-                                <TextBox x:Name="ApellidosTextBox"></TextBox>
+                                <TextBox x:Name="ApellidosTextBox" Text="{Binding huespedApellidos}" />
                             </StackPanel>
                             <StackPanel Margin="5,0" Width="140">
                                 <TextBlock Foreground="White">Email</TextBlock>
-                                <TextBox x:Name="EmailTextBox"></TextBox>
+                                <TextBox x:Name="EmailTextBox" Text="{Binding huespedEmail}" />
                             </StackPanel>
                             <StackPanel Margin="5,0" Width="80">
                                 <TextBlock Foreground="White">DNI</TextBlock>
-                                <TextBox x:Name="DniTextBox"></TextBox>
+                                <TextBox x:Name="DniTextBox" Text="{Binding huespedDni}" />
                             </StackPanel>
                         </WrapPanel>
-                        <Label Foreground="White">NombreCliente - emailCliente</Label>
                     </StackPanel>
-
                 </Grid>
+
                 <!--GRID 1 FILA 2-->
                 <Border Grid.Row="2" Grid.ColumnSpan="2" Background="#84b026" 
                     Width="100" Height="30" HorizontalAlignment="Right" Margin="10" CornerRadius="15">
-                    <Button x:Name="CrearReservaButton" Click="CrearReservaButton_Click"  Background="Transparent" BorderBrush="Transparent" Foreground="#161f30">Crear Reserva</Button>
+                    <Button x:Name="GuardarCambiosButton" Click="GuardarCambiosButton_Click" Background="Transparent" BorderBrush="Transparent" Foreground="#161f30">Guardar Cambios</Button>
                 </Border>
+ 
             </Grid>
         </Border>
     </Grid>

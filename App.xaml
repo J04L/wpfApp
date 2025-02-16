@@ -6,6 +6,7 @@
 
              StartupUri="/View/Login.xaml">
 
+
     <Application.Resources>
          <ResourceDictionary>
              <ResourceDictionary.MergedDictionaries>
