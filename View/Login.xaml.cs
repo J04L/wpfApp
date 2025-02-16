@@ -63,7 +63,7 @@ namespace app_wpf
                 Console.WriteLine($"📤 Enviando JSON: {json}");
 
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
-                HttpResponseMessage response = await _httpClient.PostAsync("http://localhost:3036/usuarios/login", content);
+                HttpResponseMessage response = await _httpClient.PostAsync("http://localhost:3036/usuarios/logincorporate", content);
                 string responseString = await response.Content.ReadAsStringAsync();
                 Console.WriteLine($"📥 Respuesta API: {responseString}");
                 if (response.IsSuccessStatusCode)

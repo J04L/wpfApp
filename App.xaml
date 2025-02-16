@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:app_wpf"
 
 
-             StartupUri="/View/Listas/ListaUsuarios.xaml">
+             StartupUri="/View/Login.xaml">
 
     <Application.Resources>
          <ResourceDictionary>
