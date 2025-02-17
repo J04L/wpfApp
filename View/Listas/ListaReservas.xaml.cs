@@ -18,6 +18,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Net.Http.Json;
 using app_wpf.View.Edicion;
+using app_wpf.View.Creacion;
 
 
 namespace app_wpf.View.Listas
@@ -180,6 +181,33 @@ namespace app_wpf.View.Listas
             {
                 MessageBox.Show("Por favor, selecciona una reserva para editar.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
+        }
+
+        private void Reservar_click(object sender, RoutedEventArgs e)
+        {
+            var reservar = new Reservas();
+            reservar.Show();
+            Close();
+        }
+
+        private void Listausuarios_click(object sender, RoutedEventArgs e)
+        {
+            var listaUsuarios = new ListaUsuarios();
+            listaUsuarios.Show();
+            Close();
+        }
+
+        private void ListaReservas_click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show($"Ya estas en esta ventana", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+
+        }
+
+        private void ListaHabitaciones_click(object sender, RoutedEventArgs e)
+        {
+            var listaHabitaciones = new MainWindow();
+            listaHabitaciones.Show();
+            Close();
         }
     }
 }

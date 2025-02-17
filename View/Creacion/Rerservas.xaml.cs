@@ -1,4 +1,5 @@
 ﻿using app_wpf.Model;
+using app_wpf.View.Listas;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -42,10 +43,7 @@ namespace app_wpf.View.Creacion
                     capacidad = parsedCapacidad;
                 }
 
-                // Obtener el tipo de habitación
-                string tipo = TipoHabitacionNormal.IsChecked == true ? "Normal" :
-                              TipoHabitacionSuit.IsChecked == true ? "Suit" :
-                              TipoHabitacionPresidencial.IsChecked == true ? "Presidencial" : null;
+                
 
                 bool vip = VipCheckBox.IsChecked == true;
                 bool oferta = OfertaCheckBox.IsChecked == true;
@@ -59,7 +57,7 @@ namespace app_wpf.View.Creacion
                     capacidad,
                     fecha_inicio = fechaInicio,
                     fecha_fin = fechaFin,
-                    tipo,
+                    
                     vip,
                     oferta,
                     extras = new { cuna, camaExtra }
@@ -137,7 +135,32 @@ namespace app_wpf.View.Creacion
             }
         }
 
+        private void ListaReservas_click(object sender, RoutedEventArgs e)
+        {
+            var listaReservas = new ListaReservas();
+            listaReservas.Show();
+            Close();
+        }
 
+        private void Listausuarios_click(object sender, RoutedEventArgs e)
+        {
+            var listaUsuarios = new ListaUsuarios();
+            listaUsuarios.Show();
+            Close();
+            }
+
+        private void Reservar_click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show($"Ya estas en esta ventana", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+
+        }
+
+        private void ListaHabitaciones_click(object sender, RoutedEventArgs e)
+        {
+            var listaHabitaciones = new MainWindow();
+            listaHabitaciones.Show();
+            Close();
+        }
 
 
     }
