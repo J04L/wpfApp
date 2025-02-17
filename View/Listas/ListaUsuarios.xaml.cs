@@ -212,14 +212,14 @@ namespace app_wpf
 
         private void NuevoUser_click(object sender, RoutedEventArgs e)
         {
-            var newUser = new NuevoUser(null);
+            NuevoUser newUser = new NuevoUser(null);
             newUser.ShowDialog();
             _ = FillDataGridUsuarios();
         }
 
         private void ListaReservas_click(object sender, RoutedEventArgs e)
         {
-            var listaReservas = new ListaReservas();
+            ListaReservas listaReservas = new ListaReservas();
             listaReservas.Show();
             Close();
         }
@@ -231,7 +231,7 @@ namespace app_wpf
 
         private void Reservar_click(object sender, RoutedEventArgs e)
         {
-            var reservar = new Reservas();
+            Reservas reservar = new Reservas();
             reservar.Show();
             Close();
         }

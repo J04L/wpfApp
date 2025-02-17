@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using app_wpf.Model;
+using app_wpf.View.Creacion;
 using app_wpf.View.Listas;
 using Newtonsoft.Json;
 
@@ -22,26 +23,6 @@ namespace app_wpf
         {
             InitializeComponent();
             _httpClient = new HttpClient(); // Inicializamos el HttpClient
-        }
-
-        public async Task<Usuario> GetUsuarioByEmail(string email)
-        {
-            using (HttpClient client = new HttpClient())
-            {
-                string url = $"http://localhost:3036/usuarios/getOne";
-                var requestBody = new StringContent(JsonConvert.SerializeObject(new { email }), Encoding.UTF8, "application/json");
-                HttpResponseMessage response = await client.PostAsync(url, requestBody);
-                if (response.IsSuccessStatusCode)
-                {
-                    string json = await response.Content.ReadAsStringAsync();
-                    Usuario usuario = JsonConvert.DeserializeObject<Usuario>(json);
-                    return usuario;
-                }
-                else
-                {
-                    return null;
-                }
-            }
         }
 
         private async void Login_click(object sender, RoutedEventArgs e)
@@ -69,8 +50,8 @@ namespace app_wpf
                 if (response.IsSuccessStatusCode)
                 {
                     MessageBox.Show("✅ Inicio de sesión exitoso.", "Bienvenido", MessageBoxButton.OK, MessageBoxImage.Information);
-                    ListaReservas listaReservas = new ListaReservas();
-                    listaReservas.Show();
+                    Reservas Reservas = new Reservas();
+                    Reservas.Show();
                     Close();
                 }
                 else if (response.StatusCode == System.Net.HttpStatusCode.Forbidden)

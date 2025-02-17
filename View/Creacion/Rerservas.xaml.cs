@@ -137,8 +137,11 @@ namespace app_wpf.View.Creacion
             }
         }
 
-
-
-
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var listaUsuarios = new ListaUsuarios();
+            listaUsuarios.Show();
+            Close();
+        }
     }
 }
