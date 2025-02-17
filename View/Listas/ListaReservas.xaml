@@ -139,10 +139,13 @@
                             <TextBlock Grid.Column="1" FontSize="24" FontWeight="Bold" HorizontalAlignment="Right" Foreground="#84b026" Height="32" VerticalAlignment="Top" >RESERVAS</TextBlock>
                         </Grid>
                     </Border>
-                    <Border BorderThickness="0,0,0,1" CornerRadius="0,0,10,10">
-                        <DataGrid x:Name="DataGridReservas" CanUserDeleteRows="False" IsReadOnly="True" CanUserAddRows="False" ItemsSource="{Binding ListaReservas}" AutoGenerateColumns="True" HeadersVisibility="Column"  Background="Blue" Foreground="black" SelectionChanged="DataGridReservas_SelectionChanged">
+                    <Border BorderThickness="0,0,0,1" CornerRadius="0,0,10,10" Height="500">
+                        <StackPanel>
 
-                        </DataGrid>
+                            <DataGrid VerticalScrollBarVisibility="Auto" MaxHeight="470" x:Name="DataGridReservas" CanUserDeleteRows="False" IsReadOnly="True" CanUserAddRows="False" ItemsSource="{Binding ListaReservas}" AutoGenerateColumns="True" HeadersVisibility="Column" Background="#143444" Foreground="black" SelectionChanged="DataGridReservas_SelectionChanged">
+
+                            </DataGrid>
+                        </StackPanel>
                     </Border>
                 </StackPanel>
             </Border>

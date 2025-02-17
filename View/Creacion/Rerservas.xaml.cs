@@ -71,7 +71,6 @@ namespace app_wpf.View.Creacion
                 if (response.IsSuccessStatusCode)
                 {
                     string responseBody = await response.Content.ReadAsStringAsync();
-                    MessageBox.Show("Respuesta JSON: " + responseBody);
                     //var habitaciones = JsonSerializer.Deserialize<List<Habitacion>>(responseBody, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
                     List<Habitacion> habitaciones = JsonConvert.DeserializeObject<List<Habitacion>>(responseBody);
 
@@ -132,6 +131,8 @@ namespace app_wpf.View.Creacion
                 CrearReserva ventanaReserva = new CrearReserva(habitacion, fechaEntrada, fechaSalida, numHuespedes, precioTotal, tipoHabitacion, fotoHabitacion, numeroHabitacion);
                 ventanaReserva.Owner = Application.Current.MainWindow;
                 ventanaReserva.ShowDialog();
+                // Reiniciar la lista de habitaciones después de la reserva
+                HabitacionesItemsControl.ItemsSource = null;  // Limpiar el ItemsSource
             }
         }
 
@@ -149,7 +150,7 @@ namespace app_wpf.View.Creacion
             Close();
             }
 
-        private void Reservar_click(object sender, RoutedEventArgs e)
+        private void ReservarView_click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show($"Ya estas en esta ventana", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
 
