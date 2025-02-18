@@ -199,12 +199,23 @@ namespace app_wpf.image
             {
                 MessageBox.Show(_userId);
                 bool actualizado = await UpdateUsuario(_userId, datosUsuario);
-                if (actualizado) this.Close();
+                if (actualizado)
+                {
+                    ListaUsuarios listaUsuarios = new ListaUsuarios();
+                    listaUsuarios.Show();
+                    Close();
+                }
+
             }
             else
             {
                 bool creado = await CrearUsuario(datosUsuario);
-                if (creado) this.Close();
+                if (creado)
+                {
+                    ListaUsuarios listaUsuarios = new ListaUsuarios();
+                    listaUsuarios.Show();
+                    Close();
+                }
             }
         }
     }

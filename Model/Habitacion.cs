@@ -61,6 +61,7 @@ namespace app_wpf.Model
             Disponible = disponible;
             Piso = piso;
         }
+
     }
 
     public class HabitacionListView

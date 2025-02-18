@@ -1,4 +1,5 @@
 ﻿using app_wpf.Model;
+using app_wpf.View.Listas;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -42,10 +43,7 @@ namespace app_wpf.View.Creacion
                     capacidad = parsedCapacidad;
                 }
 
-                // Obtener el tipo de habitación
-                string tipo = TipoHabitacionNormal.IsChecked == true ? "Normal" :
-                              TipoHabitacionSuit.IsChecked == true ? "Suit" :
-                              TipoHabitacionPresidencial.IsChecked == true ? "Presidencial" : null;
+                
 
                 bool vip = VipCheckBox.IsChecked == true;
                 bool oferta = OfertaCheckBox.IsChecked == true;
@@ -59,7 +57,7 @@ namespace app_wpf.View.Creacion
                     capacidad,
                     fecha_inicio = fechaInicio,
                     fecha_fin = fechaFin,
-                    tipo,
+                    
                     vip,
                     oferta,
                     extras = new { cuna, camaExtra }
@@ -73,11 +71,10 @@ namespace app_wpf.View.Creacion
                 if (response.IsSuccessStatusCode)
                 {
                     string responseBody = await response.Content.ReadAsStringAsync();
-                    MessageBox.Show("Respuesta JSON: " + responseBody);
                     //var habitaciones = JsonSerializer.Deserialize<List<Habitacion>>(responseBody, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
                     List<Habitacion> habitaciones = JsonConvert.DeserializeObject<List<Habitacion>>(responseBody);
 
-                    const string BASE_URL = "http://localhost:3036/img/";
+                    const string BASE_URL = "http://localhost:3036/";
 
                     foreach (var habitacion in habitaciones)
                     {
@@ -102,9 +99,70 @@ namespace app_wpf.View.Creacion
             }
         }
 
-        private void ReservarHabitacion_Click(object sender, RoutedEventArgs e)
+        private void Reservar_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Habitación reservada.");
+            if (sender is Button button && button.CommandParameter is Habitacion habitacion)
+            {
+                // Obtener solo las fechas seleccionadas
+                DateTime fechaEntrada = FechaEntrada.SelectedDate ?? DateTime.Now;
+                DateTime fechaSalida = FechaSalida.SelectedDate ?? DateTime.Now.AddDays(1);
+
+                // Obtener solo el número de huéspedes del ComboBox
+                int numHuespedes = 1; // Valor por defecto
+                if (CapacidadComboBox.SelectedItem is ComboBoxItem selectedItem)
+                {
+                    if (int.TryParse(selectedItem.Content.ToString(), out int capacidad))
+                    {
+                        numHuespedes = capacidad;
+                    }
+                }
+
+                // Calcular el precio total (Precio * Días de estancia)
+                int diasTotales = (int)(fechaSalida - fechaEntrada).TotalDays;
+                if (diasTotales <= 0) diasTotales = 1; // Asegurar al menos 1 día de estancia
+                double precioTotal = diasTotales * habitacion.Precio;
+
+                // Obtener el tipo de habitación y la primera foto
+                string tipoHabitacion = habitacion.TipoHabitacion.NombreTipoHabitacion;
+                int numeroHabitacion = habitacion.NumeroHabitacion; // Número de habitación
+                string fotoHabitacion = habitacion.Fotos?.FirstOrDefault(); // Obtener la primera foto
+
+                // Pasar los datos a la ventana CrearReserva (sin indicadores)
+                CrearReserva ventanaReserva = new CrearReserva(habitacion, fechaEntrada, fechaSalida, numHuespedes, precioTotal, tipoHabitacion, fotoHabitacion, numeroHabitacion);
+                ventanaReserva.Owner = Application.Current.MainWindow;
+                ventanaReserva.ShowDialog();
+                // Reiniciar la lista de habitaciones después de la reserva
+                HabitacionesItemsControl.ItemsSource = null;  // Limpiar el ItemsSource
+            }
         }
+
+        private void ListaReservas_click(object sender, RoutedEventArgs e)
+        {
+            var listaReservas = new ListaReservas();
+            listaReservas.Show();
+            Close();
+        }
+
+        private void Listausuarios_click(object sender, RoutedEventArgs e)
+        {
+            var listaUsuarios = new ListaUsuarios();
+            listaUsuarios.Show();
+            Close();
+            }
+
+        private void ReservarView_click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show($"Ya estas en esta ventana", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+
+        }
+
+        private void ListaHabitaciones_click(object sender, RoutedEventArgs e)
+        {
+            var listaHabitaciones = new MainWindow();
+            listaHabitaciones.Show();
+            Close();
+        }
+
+
     }
 }

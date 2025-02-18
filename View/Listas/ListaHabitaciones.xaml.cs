@@ -172,6 +172,8 @@ namespace app_wpf
             new ListaReservas().Show();
             Close();
         }
+
+   
     }
 
 }
