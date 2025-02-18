@@ -66,7 +66,6 @@ namespace app_wpf
             set
             {
                 _numero = value;
-                Console.WriteLine($"Nuevo valor de Numero: {_numero}");
                 OnPropertyChanged(nameof(Numero));
             }
         }
@@ -237,7 +236,6 @@ namespace app_wpf
 
         protected void OnPropertyChanged(string propertyName)
         {
-            Console.WriteLine($"{propertyName}");
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 

@@ -67,7 +67,6 @@ namespace app_wpf
             set
             {
                 _numero = value;
-                Console.WriteLine($"Nuevo valor de Numero: {_numero}");
                 OnPropertyChanged(nameof(Numero));
             }
         }
@@ -237,7 +236,6 @@ namespace app_wpf
 
         protected void OnPropertyChanged(string propertyName)
         {
-            Console.WriteLine($"{propertyName}");
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
@@ -257,7 +255,7 @@ namespace app_wpf
                 new Capacidad(_capacidadAdultos, _capacidadNinos),
                 _descripcion,
                 _precio,
-                MainWindow.Habitaciones.Find( habitacion => habitacion.NumeroHabitacion == Numero).Fotos,
+                habitaciones.Find( habitacion => habitacion.NumeroHabitacion == NumeroOriginal).Fotos,
                 new Camas(_camasDobles, _camasIndividuales),
                 _dimensiones,
                 true,

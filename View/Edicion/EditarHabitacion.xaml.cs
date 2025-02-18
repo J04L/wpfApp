@@ -67,7 +67,7 @@ namespace app_wpf
             {
                 if (!_viewModel.HasErrors)
                 {
-                    await ApiClient.PutHabitacion(_viewModel.GetHabitacion());
+                    await ApiClient.PutHabitacion(_viewModel.NumeroOriginal, _viewModel.GetHabitacion());
                     MessageBox.Show(
                         "Habitación editada",
                         "Éxito",

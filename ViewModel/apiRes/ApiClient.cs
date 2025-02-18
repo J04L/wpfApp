@@ -61,7 +61,7 @@ public class ApiClient
         }
     }
 
-    public static async Task PutHabitacion(Habitacion habitacion)
+    public static async Task PutHabitacion(int NumeroOriginal, Habitacion habitacion)
     {
         using (HttpClient client = new HttpClient())
         {
@@ -70,7 +70,7 @@ public class ApiClient
             StringContent jsonContent = new StringContent(json, Encoding.UTF8, "application/json");
 
             // Enviar la petición POST
-            HttpResponseMessage response = await client.PutAsync($" http://localhost:3036/api/habitacion/{habitacion.NumeroHabitacion}", jsonContent);
+            HttpResponseMessage response = await client.PutAsync($" http://localhost:3036/api/habitacion/{NumeroOriginal}", jsonContent);
             string result = await response.Content.ReadAsStringAsync();
 
             Console.WriteLine("Respuesta del servidor: " + result);
